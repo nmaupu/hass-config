@@ -16,6 +16,12 @@ homeassistant:
   #  - /data/homeassistant
   #  - /home/homeassistant/maps
 
+default_config:
+
+# Text to speech
+tts:
+  - platform: google_translate
+
 logger:
   default: info
 
