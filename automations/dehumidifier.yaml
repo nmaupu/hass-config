@@ -1,0 +1,38 @@
+- alias: 'Estrade dehumidifier ON'
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.estrade_am2301_humidity
+    above: '55'
+    below: '100'
+    for: 00:00:10
+  condition:
+  - condition: time
+    after: '10:00:00'
+    before: '22:00:00'
+  action:
+  - service: switch.turn_on
+    data:
+      entity_id: switch.estrade_relay
+
+- alias: 'Estrade dehumidifier OFF'
+  trigger:
+  - platform: time
+    at: '22:00:00'
+  condition: []
+  action:
+  - service: switch.turn_off
+    data:
+      entity_id: switch.estrade_relay
+
+- alias: 'Estrade dehumidifier OFF if below'
+  trigger:
+  - platform: numeric_state
+    below: '39'
+    above: '5'
+    entity_id: sensor.estrade_am2301_humidity
+    for: 00:00:10
+  condition: []
+  action:
+  - service: switch.turn_off
+    data:
+      entity_id: switch.estrade_relay
