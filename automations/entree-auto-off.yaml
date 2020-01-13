@@ -4,7 +4,7 @@
       from: 'off'
       to: 'on'
       entity_id: light.entree_switch
-      for: 00:03:00
+      for: 00:04:00
   action:
     - service: light.turn_off
       data:
