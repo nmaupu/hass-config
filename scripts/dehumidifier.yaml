@@ -1,0 +1,7 @@
+reset_dehumidifier_on_automation:
+  sequence:
+    - service: automation.turn_off
+      entity_id: automation.estrade_dehumidifier_on
+    - delay: '00:00:01'
+    - service: automation.turn_on
+      entity_id: automation.estrade_dehumidifier_on

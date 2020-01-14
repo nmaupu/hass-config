@@ -30,10 +30,11 @@ tts:
 logger:
   default: info
 
-script: !include_dir_named scripts/
+script: !include_dir_merge_named scripts/
+sensor: !include_dir_merge_list sensors/
 automation: !include automations.yaml
 automation mine: !include_dir_merge_list automations/
 scene: !include scenes.yaml
-scene mine: !include_dir_list scenes/
+scene mine: !include_dir_merge_list scenes/
 group: !include groups.yaml
 mqtt: !include mqtt.yaml

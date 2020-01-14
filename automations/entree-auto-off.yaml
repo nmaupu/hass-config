@@ -1,4 +1,4 @@
-- alias: 'Entree auto off'
+- alias: 'Entree auto OFF'
   initial_state: false
   trigger:
     - platform: state
