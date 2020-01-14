@@ -23,6 +23,9 @@
   - service: switch.turn_off
     data:
       entity_id: switch.estrade_relay
+  # Force rearm of the main automation
+  - service: automation.turn_off
+    entity_id: automation.estrade_dehumidifier_on
 
 - alias: 'Estrade dehumidifier OFF if below'
   trigger:
@@ -36,3 +39,6 @@
   - service: switch.turn_off
     data:
       entity_id: switch.estrade_relay
+  # Force rearm of the main automation
+  - service: automation.turn_off
+    entity_id: automation.estrade_dehumidifier_on
