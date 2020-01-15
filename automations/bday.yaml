@@ -1,0 +1,6 @@
+- alias: 'Escalier bday'
+  initial_state: false
+  trigger: []
+  condition: []
+  action:
+    - service: script.bday

@@ -1,0 +1,8 @@
+bday:
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: mystery/cmnd/POWER
+        payload: bday
+        qos: 0
+        retain: no
