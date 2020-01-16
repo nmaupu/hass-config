@@ -7,29 +7,22 @@
     for: 00:00:10
   condition:
   - condition: time
-    after: '10:00:00'
-    before: '21:59:59'
+    after: '10:00:01'
+    before: '21:30:00'
   action:
   - service: switch.turn_on
     data:
       entity_id: switch.estrade_relay
 
-- alias: 'Estrade dehumidifier OFF'
+- alias: 'Estrade dehumidifier morning ON'
   trigger:
   - platform: time
-    at: '22:00:00'
+    at: '10:00:00'
   condition: []
   action:
-  - service: switch.turn_off
+  - service: switch.turn_on
     data:
      entity_id: switch.estrade_relay
-  # reset above automation state in case switch is turned off
-  # whereas humidity is already > threshold%
-  # In this case, it will never be triggered again (because already triggered
-  # during the day and switch is now off, so humidity will continuously rise
-  # and never gets under threshold again...)
-  - service: script.reset_dehumidifier_on_automation
-
 
 - alias: 'Estrade dehumidifier OFF if below'
   trigger:

@@ -1,4 +1,4 @@
-- alias: 'Escalier bday'
+- alias: 'bday'
   initial_state: false
   trigger: []
   condition: []

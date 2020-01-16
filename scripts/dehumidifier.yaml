@@ -1,3 +1,5 @@
+# This script works as expected
+# but does not seem to actually reset the machine state...
 reset_dehumidifier_on_automation:
   sequence:
     - service: automation.turn_off
