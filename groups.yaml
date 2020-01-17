@@ -1,13 +1,13 @@
-  Bedroom:
-    - switch.estrade
-    - switch.estrade_relay
+Bedroom:
+  - switch.estrade
+  - switch.estrade_relay
 
-  Hall:
-    - light.dressing_switch
-    - light.piano_switch
-    - light.escalier_switch
-    - light.entree_switch
+Hall:
+  - light.dressing_switch
+  - light.piano_switch
+  - light.escalier_switch
+  - light.entree_switch
 
-  Living:
-    - light.poutre_dimmer
-    - light.table_dimmer
+Living:
+  - light.poutre_dimmer
+  - light.table_dimmer
