@@ -1,0 +1,10 @@
+- alias: Turn on entry light on vibration
+  trigger:
+    platform: state
+    entity_id: sensor.0x00158d00031b1a5d_action
+    to: 'vibration'
+  action:
+    - service: light.toggle
+      data:
+        entity_id:
+          - light.basement_escalier_switch
