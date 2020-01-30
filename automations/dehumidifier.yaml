@@ -28,7 +28,7 @@
   trigger:
   - platform: numeric_state
     above: '5'
-    below: '39'
+    below: '40'
     entity_id: sensor.estrade_am2301_humidity
     for: 00:00:10
   condition: []
