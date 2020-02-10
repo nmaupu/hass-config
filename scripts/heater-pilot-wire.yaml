@@ -1,0 +1,51 @@
+heater_pilot_wire_confort:
+  description: turn heater on (confort mode)
+  fields:
+    switch_prefix:
+      description: "Switch name prefix to act on"
+  sequence:
+    - service: switch.turn_off
+      data_template:
+        entity_id: 'switch.{{ switch_prefix }}_1'
+    - service: switch.turn_off
+      data_template:
+        entity_id: 'switch.{{ switch_prefix }}_2'
+
+heater_pilot_wire_frostprotection:
+  description: turn heater off (frost protection mode)
+  fields:
+    switch_prefix:
+      description: "Switch name prefix to act on"
+  sequence:
+    - service: switch.turn_on
+      data_template:
+        entity_id: 'switch.{{ switch_prefix }}_1'
+    - service: switch.turn_off
+      data_template:
+        entity_id: 'switch.{{ switch_prefix }}_2'
+
+heater_pilot_wire_off:
+  description: turn heater off
+  fields:
+    switch_prefix:
+      description: "Switch name prefix to act on"
+  sequence:
+    - service: switch.turn_off
+      data_template:
+        entity_id: 'switch.{{ switch_prefix }}_1'
+    - service: switch.turn_on
+      data_template:
+        entity_id: 'switch.{{ switch_prefix }}_2'
+
+heater_pilot_wire_eco:
+  description: turn heater on eco mode
+  fields:
+    switch_prefix:
+      description: "Switch name prefix to act on"
+  sequence:
+    - service: switch.turn_on
+      data_template:
+        entity_id: 'switch.{{ switch_prefix }}_1'
+    - service: switch.turn_on
+      data_template:
+        entity_id: 'switch.{{ switch_prefix }}_2'

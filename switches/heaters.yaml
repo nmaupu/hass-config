@@ -16,21 +16,17 @@
         {% else %}
           mdi:radiator-off
         {% endif %}
-      turn_off:
-        # Frost Protection mode
-        sequence:
-          - service: switch.turn_on
-            data:
-              entity_id: switch.heater_bedroom_1
-          - service: switch.turn_off
-            data:
-              entity_id: switch.heater_bedroom_2
       turn_on:
         # Confort mode
-        sequence:
-          - service: switch.turn_off
-            data:
-              entity_id: switch.heater_bedroom_1
-          - service: switch.turn_off
-            data:
-              entity_id: switch.heater_bedroom_2
+        service: script.turn_on
+        entity_id: script.heater_pilot_wire_confort
+        data:
+          variables:
+            switch_prefix: "heater_bedroom"
+      turn_off:
+        # Frost Protection mode
+        service: script.turn_on
+        entity_id: script.heater_pilot_wire_frostprotection
+        data:
+          variables:
+            switch_prefix: "heater_bedroom"
