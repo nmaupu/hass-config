@@ -1,0 +1,36 @@
+- platform: template
+  switches:
+    # pilot wire truth table as used with Sonoff dual R2
+    # R1    R2   Mode
+    # OFF   OFF  Confort / heater ON (no signal)
+    # ON    OFF  Frost Protection (negative alternance)
+    # OFF   ON   STOP (positive alternance)
+    # ON    ON   ECO (normal sin)
+    heater_bedroom:
+      friendly_name: "Bedroom heater"
+      # If both switches are OFF, heater is in "confort" mode, so is ON
+      value_template: "{{ is_state('switch.heater_bedroom_1', 'off') and is_state('switch.heater_bedroom_2', 'off') }}"
+      icon_template: >
+        {% if states.switch.heater_bedroom_1.state == "off" and states.switch.heater_bedroom_2.state == "off" %}
+          mdi:radiator
+        {% else %}
+          mdi:radiator-off
+        {% endif %}
+      turn_off:
+        # Frost Protection mode
+        sequence:
+          - service: switch.turn_on
+            data:
+              entity_id: switch.heater_bedroom_1
+          - service: switch.turn_off
+            data:
+              entity_id: switch.heater_bedroom_2
+      turn_on:
+        # Confort mode
+        sequence:
+          - service: switch.turn_off
+            data:
+              entity_id: switch.heater_bedroom_1
+          - service: switch.turn_off
+            data:
+              entity_id: switch.heater_bedroom_2
