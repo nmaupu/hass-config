@@ -45,3 +45,4 @@ scene mine: !include_dir_merge_list scenes/
 group: !include groups.yaml
 mqtt: !include mqtt.yaml
 switch: !include_dir_merge_list switches/
+climate: !include_dir_merge_list climates/
