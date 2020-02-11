@@ -1,0 +1,35 @@
+- alias: Heating ON bedroom at night
+  trigger:
+    - platform: time
+      at: '21:00'
+  condition: []
+  action:
+    - service: climate.turn_on
+      entity_id: climate.bedroom
+    - service: climate.set_temperature
+      entity_id: climate.bedroom
+      data:
+        temperature: 20
+      entity_id: climate.bedroom
+
+- alias: Heating ECO for the night
+  trigger:
+    - platform: time
+      at: '23:30'
+  condition: []
+  action:
+    - service: climate.turn_on
+      entity_id: climate.bedroom
+    - service: climate.set_temperature
+      entity_id: climate.bedroom
+      data:
+        temperature: 18
+
+- alias: Heating OFF during the day
+  trigger:
+    - platform: time
+      at: '06:00'
+  condition: []
+  action:
+    - service: climate.turn_off
+      entity_id: climate.bedroom
