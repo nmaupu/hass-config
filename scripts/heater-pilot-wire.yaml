@@ -1,10 +1,28 @@
+# Tasmota truth table for Sonoff Dual R2
+# Default configuration:
+# R1    R2   Mode
+# OFF   OFF  Confort (pas de signal)
+# ON    OFF  Hors gel (alternance neg)
+# OFF   ON   arret (alternance pos)
+# ON    ON   ECO (pleine alternance)
+#
+# Inverted Relay1 configuration (GPIO 12 set to inverted)
+# This is useful to ensure heater is in frost protection mode
+# when the module goes back online after a power outage
+# To do so, set PowerOnState to 0
+# R1    R2   Mode
+# ON    OFF  Confort (pas de signal)
+# OFF   OFF  Hors gel (alternance neg)
+# ON    ON   arret (alternance pos)
+# OFF   ON   ECO (pleine alternance)
+
 heater_pilot_wire_confort:
   description: turn heater on (confort mode)
   fields:
     switch_prefix:
       description: "Switch name prefix to act on"
   sequence:
-    - service: switch.turn_off
+    - service: switch.turn_on
       data_template:
         entity_id: 'switch.{{ switch_prefix }}_1'
     - service: switch.turn_off
@@ -17,7 +35,7 @@ heater_pilot_wire_frostprotection:
     switch_prefix:
       description: "Switch name prefix to act on"
   sequence:
-    - service: switch.turn_on
+    - service: switch.turn_off
       data_template:
         entity_id: 'switch.{{ switch_prefix }}_1'
     - service: switch.turn_off
@@ -30,7 +48,7 @@ heater_pilot_wire_off:
     switch_prefix:
       description: "Switch name prefix to act on"
   sequence:
-    - service: switch.turn_off
+    - service: switch.turn_on
       data_template:
         entity_id: 'switch.{{ switch_prefix }}_1'
     - service: switch.turn_on
@@ -43,7 +61,7 @@ heater_pilot_wire_eco:
     switch_prefix:
       description: "Switch name prefix to act on"
   sequence:
-    - service: switch.turn_on
+    - service: switch.turn_off
       data_template:
         entity_id: 'switch.{{ switch_prefix }}_1'
     - service: switch.turn_on

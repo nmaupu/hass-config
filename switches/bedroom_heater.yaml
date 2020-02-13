@@ -1,17 +1,20 @@
 - platform: template
   switches:
-    # pilot wire truth table as used with Sonoff dual R2
+    # To be able to put the heater in frost protection mode
+    # after a power outage (when module goes back online),
+    # Relay1 has been inverted and PowerOnState option has been set to 0
     # R1    R2   Mode
-    # OFF   OFF  Confort / heater ON (no signal)
-    # ON    OFF  Frost Protection (negative alternance)
-    # OFF   ON   STOP (positive alternance)
-    # ON    ON   ECO (normal sin)
+    # ON    OFF  Confort / heater ON (no signal)
+    # OFF   OFF  Frost Protection (negative alternance)
+    # ON    ON   STOP (positive alternance)
+    # OFF   ON   ECO (normal sin)
     heater_bedroom:
       friendly_name: "Bedroom heater"
       # If both switches are OFF, heater is in "confort" mode, so is ON
-      value_template: "{{ is_state('switch.heater_bedroom_1', 'off') and is_state('switch.heater_bedroom_2', 'off') }}"
+      # But R1 is inverted so ON/OFF is confort mode
+      value_template: "{{ is_state('switch.heater_bedroom_1', 'on') and is_state('switch.heater_bedroom_2', 'off') }}"
       icon_template: >
-        {% if states.switch.heater_bedroom_1.state == "off" and states.switch.heater_bedroom_2.state == "off" %}
+        {% if states.switch.heater_bedroom_1.state == "on" and states.switch.heater_bedroom_2.state == "off" %}
           mdi:radiator
         {% else %}
           mdi:radiator-off
