@@ -10,7 +10,7 @@
   target_temp: 18
   away_temp: 16
   min_cycle_duration:
-    minutes: 2
+    seconds: 10
   initial_hvac_mode: "heat"
   cold_tolerance: 0.3
   hot_tolerance: 0.1

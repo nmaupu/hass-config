@@ -9,13 +9,13 @@
     - service: climate.set_temperature
       entity_id: climate.bedroom
       data:
-        temperature: 20
+        temperature: 19.5
       entity_id: climate.bedroom
 
 - alias: Heating ECO bedroom (night)
   trigger:
     - platform: time
-      at: '02:30'
+      at: '02:00'
   condition: []
   action:
     - service: climate.turn_on
@@ -36,7 +36,7 @@
     - service: climate.set_temperature
       entity_id: climate.bedroom
       data:
-        temperature: 20
+        temperature: 19.5
       entity_id: climate.bedroom
 
 - alias: Heating OFF bedroom (day)
