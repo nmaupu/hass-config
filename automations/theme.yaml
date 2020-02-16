@@ -1,0 +1,10 @@
+# Ensure theme is set when HASS restarts
+- alias: 'System - Set Custom Theme at Startup'
+  initial_state: 'true'
+  trigger:
+    platform: homeassistant
+    event: start
+  action:
+    service: frontend.set_theme
+    data:
+      name: "clear"
