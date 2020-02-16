@@ -11,3 +11,6 @@ Hall:
 Living:
   - light.poutre_dimmer
   - light.table_dimmer
+
+Basement:
+  - light.basement_escalier_switch

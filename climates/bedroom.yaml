@@ -2,7 +2,7 @@
 - platform: generic_thermostat
   name: bedroom
   heater: switch.heater_bedroom
-  target_sensor: sensor.0x00158d00045b289c_temperature
+  target_sensor: sensor.bedroom_hum_temp_temperature
   min_temp: 15
   max_temp: 22
   precision: 0.1

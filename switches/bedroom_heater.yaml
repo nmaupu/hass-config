@@ -2,7 +2,7 @@
   switches:
     # To be able to put the heater in frost protection mode
     # after a power outage (when module goes back online),
-    # Relay1 has been inverted and PowerOnState option has been set to 0
+    # Relay1 has been inverted and Tasmota PowerOnState option has been set to 0
     # R1    R2   Mode
     # ON    OFF  Confort / heater ON (no signal)
     # OFF   OFF  Frost Protection (negative alternance)

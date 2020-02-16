@@ -25,7 +25,7 @@ http:
   server_port: 8123
   ssl_certificate: /home/homeassistant/certs/fullchain.pem
   ssl_key: /home/homeassistant/certs/privkey.pem
-  base_url: https://hass.home.fossar.net:8123
+  base_url: !secret http_baseurl
 
 default_config:
 

@@ -1,7 +1,7 @@
 - alias: Turn ON basement escalier light on vibration
   trigger:
     platform: state
-    entity_id: sensor.0x00158d00031b1a5d_action
+    entity_id: sensor.basement_vibr_escalier_action
     to: 'vibration'
   condition:
     - condition: state
