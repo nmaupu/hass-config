@@ -1,8 +1,98 @@
-title: Pasteur
+title: Home
 resources:
   - url: /local/auto-entities/auto-entities.js
     type: module
 views:
+  - title: Lights
+    path: lights
+    icon: 'mdi:lightbulb'
+    badges: []
+    cards:
+      - type: horizontal-stack
+        columns: 2
+        title: Variateurs
+        cards:
+          - type: light
+            entity: light.poutre_dimmer
+            name: Poutre
+            icon: 'mdi:lightbulb'
+          - type: light
+            entity: light.table_dimmer
+            name: Table
+            icon: 'mdi:lightbulb'
+      - type: horizontal-stack
+        column: 2
+        title: Interrupteurs
+        cards:
+          - type: 'custom:auto-entities'
+            card:
+              type: entities
+              title: Hall
+            filter:
+              include:
+                - domain: light
+                  group: group.hall_lights
+                  entity_id: "/light.(.*)_switch/"
+            sort:
+              method: name
+          - type: 'custom:auto-entities'
+            card:
+              type: entities
+              title: Sous-sol
+            filter:
+              include:
+                - domain: light
+                  group: group.basement_lights
+                  entity_id: "/light.(.*)_switch/"
+            sort:
+              method: name
+  - title: Confort
+    path: confort
+    icon: 'mdi:radiator'
+    badges: []
+    cards:
+      - type: thermostat
+        entity: climate.bedroom
+        name: Bedroom
+  - title: Temperature
+    path: temperature
+    icon: 'mdi:thermometer'
+    badges: []
+    cards:
+      - type: 'custom:auto-entities'
+        card:
+          type: entities
+          show_header_toggle: false
+        filter:
+          include:
+            - entity_id: "sensor.*_temperature"
+        sort:
+          method: name
+      - type: 'custom:auto-entities'
+        card:
+          type: entities
+          show_header_toggle: false
+        filter:
+          include:
+            - entity_id: "sensor.*_humidity"
+        sort:
+          method: name
+  - title: battery
+    path: battery
+    icon: 'mdi:battery-70'
+    badges: []
+    cards:
+      - type: 'custom:auto-entities'
+        card:
+          type: entities
+          show_header_toggle: false
+        filter:
+          include:
+            - entity_id: "sensor.*_battery"
+        sort:
+          method: state
+          reverse: false
+          numeric: true
   - path: default_view
     title: Test
     badges:
@@ -116,26 +206,3 @@ views:
           - switch.heater_bedroom_1
           - switch.heater_bedroom_2
         title: Switch
-  - title: Lights
-    path: lights
-    icon: 'mdi:lightbulb'
-    badges: []
-    cards:
-      - type: horizontal-stack
-        columns: 2
-        title: Dimmers
-        cards:
-          - type: light
-            entity: light.poutre_dimmer
-            name: Poutre
-            icon: 'mdi:lightbulb'
-          - type: light
-            entity: light.table_dimmer
-            name: Table
-            icon: 'mdi:lightbulb'
-      - type: 'custom:auto-entities'
-        card: entities
-        filter:
-          include:
-            entity_id: light.*_switch
-
