@@ -1,3 +1,4 @@
+# https://community.home-assistant.io/t/clear-theme/100464
 clear:
   # Background image
   lovelace-background: 'center / cover no-repeat url("/local/day.jpg") fixed'

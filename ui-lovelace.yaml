@@ -2,6 +2,19 @@ title: Home
 resources:
   - url: /local/auto-entities/auto-entities.js
     type: module
+  - url: /local/custom-header.js
+    type: module
+  - url: /local/lovelace-cards/tiles-card/tiles-card.js
+    type: js
+  - url: /local/mini-graph-card-bundle.js
+    type: module
+  - url: /local/weather-card.min.js
+    type: module
+custom_header:
+  compact_mode: true
+  header_text: '{{ date }} - {{ time }}'
+  footer_mode: true
+  hide_help: true
 views:
   - title: Lights
     path: lights
