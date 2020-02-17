@@ -44,6 +44,10 @@ logger:
 
 sun:
 
+google:
+  client_id: !secret google_api_clientid
+  client_secret: !secret google_api_clientsecret
+
 script: !include_dir_merge_named scripts/
 sensor: !include_dir_merge_list sensors/
 automation: !include automations.yaml
@@ -54,4 +58,3 @@ group: !include groups.yaml
 mqtt: !include mqtt.yaml
 switch: !include_dir_merge_list switches/
 climate: !include_dir_merge_list climates/
-weather: !include weather.yaml
