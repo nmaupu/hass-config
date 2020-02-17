@@ -81,7 +81,6 @@ views:
     cards:
       - type: horizontal-stack
         columns: 2
-        title: Variateurs
         cards:
           - type: light
             entity: light.poutre_dimmer
@@ -92,13 +91,41 @@ views:
             name: Table
             icon: 'mdi:lightbulb'
       - type: 'custom:auto-entities'
-        title: Interrupteurs
-          sort:
-            method: name
-          filter:
-            include:
-              - domain: light
-                entity_id: "light.*_switch"
+        card:
+          type: entities
+          show_header_toggle: true
+          title: Hall
+        filter:
+          include:
+            - domain: light
+              group: group.hall_lights
+              entity_id: "light.*_switch"
+        sort:
+          method: name
+      - type: 'custom:auto-entities'
+        card:
+          type: entities
+          show_header_toggle: true
+          title: Dressing
+        filter:
+          include:
+            - domain: light
+              group: group.dressing_lights
+              entity_id: "light.*_switch"
+        sort:
+          method: name
+      - type: 'custom:auto-entities'
+        card:
+          type: entities
+          show_header_toggle: true
+          title: Basement
+        filter:
+          include:
+            - domain: light
+              group: group.basement_lights
+              entity_id: "light.*_switch"
+        sort:
+          method: name
   - title: Confort
     path: confort
     icon: 'mdi:radiator'
@@ -115,19 +142,25 @@ views:
       - type: 'custom:auto-entities'
         card:
           type: entities
+          title: Temperature
           show_header_toggle: false
         filter:
           include:
             - entity_id: "sensor.*_temperature"
+          exclude:
+            - entity_id: "sensor.darksky*"
         sort:
           method: name
       - type: 'custom:auto-entities'
         card:
           type: entities
+          title: Humidity
           show_header_toggle: false
         filter:
           include:
             - entity_id: "sensor.*_humidity"
+          exclude:
+            - entity_id: "sensor.darksky*"
         sort:
           method: name
   - title: battery

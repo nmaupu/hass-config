@@ -1,3 +1,7 @@
+dressing_lights:
+  - light.dressing_switch
+  - light.piano_switch
+
 hall_lights:
   - light.dressing_switch
   - light.piano_switch
