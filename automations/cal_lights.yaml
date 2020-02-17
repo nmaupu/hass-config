@@ -1,0 +1,100 @@
+# dimmers
+- alias: 'Cal light dimmers ON'
+  initial_state: true
+  trigger:
+    - platform: state
+      entity_id:
+        - calendar.light_poutre
+        - calendar.light_table
+      to: 'on'
+  action:
+    - service: system_log.write
+      data_template:
+        level: info
+        message: |
+          to_state = {{ trigger.to_state.state }}
+          entity_id = {{ trigger.entity_id }}
+          device_name = {{ state_attr(trigger.entity_id, 'message') }}
+          description = {{ state_attr(trigger.entity_id, 'description') }}
+    - service: light.turn_on
+      data_template:
+        entity_id: >-
+          {% set str = state_attr(trigger.entity_id, 'message') %}
+          {% if str is not none and str | string | lower | regex_search("#([a-z0-9]+)") %}
+            {% set device_name = str | string | lower | regex_findall_index("#([a-z0-9]+)") %}
+            light.{{ device_name }}_dimmer
+          {% else %}
+            light.unknown_dimmer
+          {% endif %}
+        brightness_pct: >-
+          {% if trigger.to_state.state == 'on' %}
+            {% set evtStr = state_attr(trigger.entity_id, 'description') %}
+            {% if evtStr is not none and evtStr != "" %}
+              {% set evt = evtStr | string | lower | from_json %}
+              {{ evt.brightness | int(default=100) }}
+            {% else %}
+              {{ "50" | int }}
+            {% endif %}
+          {% else %}
+            {{ "0" | int }}
+          {% endif %}
+
+- alias: 'Cal light dimmers OFF'
+  initial_state: true
+  trigger:
+    - platform: state
+      entity_id:
+        - calendar.light_poutre
+        - calendar.light_table
+      to: 'off'
+  action:
+    - service: system_log.write
+      data_template:
+        level: info
+        message: |
+          to_state = {{ trigger.to_state.state }}
+          entity_id = {{ trigger.entity_id }}
+          device_name = {{ state_attr(trigger.entity_id, 'message') }}
+          description = {{ state_attr(trigger.entity_id, 'description') }}
+    - service: light.turn_off
+      data_template:
+        entity_id: >-
+          {% set str = state_attr(trigger.entity_id, 'message') %}
+          {% if str is not none and str | string | lower | regex_search("#([a-z0-9]+)") %}
+            {% set device_name = str | string | lower | regex_findall_index("#([a-z0-9]+)") %}
+            light.{{ device_name }}_dimmer
+          {% else %}
+            light.unknown_dimmer
+          {% endif %}
+
+# Normal lights
+- alias: 'Cal light switches ON/OFF'
+  initial_state: true
+  trigger:
+    - platform: state
+      entity_id:
+        - calendar.light_dressing
+        - calendar.light_piano
+        - calendar.light_entree
+        - calendar.light_escalier
+        - calendar.light_basement_escalier
+  action:
+    - service: system_log.write
+      data_template:
+        level: info
+        message: |
+          to_state = {{ trigger.to_state.state }}
+          entity_id = {{ trigger.entity_id }}
+          device_name = {{ state_attr(trigger.entity_id, 'message') }}
+          description = {{ state_attr(trigger.entity_id, 'description') }}
+    - service_template: >
+         light.turn_{{ trigger.to_state.state | lower }}
+      data_template:
+        entity_id: >-
+          {% set str = state_attr(trigger.entity_id, 'message') %}
+          {% if str is not none and str | string | lower | regex_search("#([a-z0-9]+)") %}
+            {% set device_name = str | string | lower | regex_findall_index("#([a-z0-9]+)") %}
+            light.{{ device_name }}_switch
+          {% else %}
+            light.unknown_switch
+          {% endif %}

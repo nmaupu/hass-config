@@ -1,0 +1,59 @@
+- cal_id: !secret google_cal_thermostats
+  entities:
+  - device_id: thermostat_bedroom
+    ignore_availability: true
+    name: thermostat_bedroom
+    track: true
+    search: "#bedroom"
+
+- cal_id: !secret google_cal_lights
+  entities:
+  - device_id: light_dressing
+    ignore_availability: true
+    name: light_dressing
+    track: true
+    search: "#dressing"
+  - device_id: light_entree
+    ignore_availability: true
+    name: light_entree
+    track: true
+    search: "#entree"
+  - device_id: light_piano
+    ignore_availability: true
+    name: light_piano
+    track: true
+    search: "#piano"
+  - device_id: light_escalier
+    ignore_availability: true
+    name: light_escalier
+    track: true
+    search: "#escalier"
+  - device_id: light_basement_escalier
+    ignore_availability: true
+    name: light_basement_escalier
+    track: true
+    search: "#basement_escalier"
+  - device_id: light_poutre
+    ignore_availability: true
+    name: light_poutre
+    track: true
+    search: "#poutre"
+  - device_id: light_table
+    ignore_availability: true
+    name: light_table
+    track: true
+    search: "#table"
+
+- cal_id: en.french#holiday@group.v.calendar.google.com
+  entities:
+  - device_id: holidays_fr
+    ignore_availability: true
+    name: Holidays in France
+    track: true
+
+- cal_id: fr.french#holiday@group.v.calendar.google.com
+  entities:
+  - device_id: non_working_days_fr
+    ignore_availability: true
+    name: "Jours f\xE9ri\xE9s en France"
+    track: true
