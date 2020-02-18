@@ -83,6 +83,8 @@ two_heaters_pilot_wire:
         entity_id: "{{ script_name }}"
         variables:
           switch_prefix: "{{ heater_1_prefix }}"
+    - delay:
+        seconds: 1
     - service: script.turn_on
       data_template:
         entity_id: "{{ script_name }}"
