@@ -1,0 +1,97 @@
+# To be able to put the heater in frost protection mode
+# after a power outage (when module goes back online),
+# Relay1 has been inverted and Tasmota PowerOnState option has been set to 0
+# R1    R2   Mode
+# ON    OFF  Confort / heater ON (no signal)
+# OFF   OFF  Frost Protection (negative alternance)
+# ON    ON   STOP (positive alternance)
+# OFF   ON   ECO (normal sin)
+
+- platform: template
+  switches:
+    living_heater_1:
+      friendly_name: "Living heater 1"
+      # If both switches are OFF, heater is in "confort" mode, so is ON
+      # But R1 is inverted so ON/OFF is confort mode
+      value_template: >
+        {{ is_state('switch.heater_living_1_1', 'on') and is_state('switch.heater_living_1_2', 'off') }}
+      icon_template: >
+        {% if is_state('switch.heater_living_1_1', 'on') and is_state('switch.heater_living_1_2', 'off') %}
+          mdi:radiator
+        {% else %}
+          mdi:radiator-off
+        {% endif %}
+      turn_on:
+        # Confort mode
+        service: script.turn_on
+        entity_id: script.heater_pilot_wire_confort
+        data:
+          variables:
+            switch_prefix: "heater_living_1"
+      turn_off:
+        # Frost Protection mode
+        service: script.turn_on
+        entity_id: script.heater_pilot_wire_frostprotection
+        data:
+          variables:
+            switch_prefix: "heater_living_1"
+
+- platform: template
+  switches:
+    living_heater_2:
+      friendly_name: "Living heater 2"
+      # If both switches are OFF, heater is in "confort" mode, so is ON
+      # But R1 is inverted so ON/OFF is confort mode
+      value_template: >
+        {{ is_state('switch.heater_living_2_1', 'on') and is_state('switch.heater_living_2_2', 'off') }}
+      icon_template: >
+        {% if is_state('switch.heater_living_2_1', 'on') and is_state('switch.heater_living_2_2', 'off') %}
+          mdi:radiator
+        {% else %}
+          mdi:radiator-off
+        {% endif %}
+      turn_on:
+        # Confort mode
+        service: script.turn_on
+        entity_id: script.heater_pilot_wire_confort
+        data:
+          variables:
+            switch_prefix: "heater_living_2"
+      turn_off:
+        # Frost Protection mode
+        service: script.turn_on
+        entity_id: script.heater_pilot_wire_frostprotection
+        data:
+          variables:
+            switch_prefix: "heater_living_2"
+
+- platform: template
+  switches:
+    living_heaters:
+      friendly_name: "Living heaters"
+      value_template: >
+        {{ is_state('switch.living_heater_1', 'on') and is_state('switch.living_heater_2', 'on') }}
+      icon_template: >
+        {% if is_state('switch.living_heater_1', 'on') and is_state('switch.living_heater_2', 'on') %}
+          mdi:radiator
+        {% else %}
+          mdi:radiator-off
+        {% endif %}
+      turn_on:
+        # Confort mode
+        service: script.turn_on
+        entity_id: script.two_heaters_pilot_wire
+        data:
+          variables:
+            heater_1_prefix: "heater_living_1"
+            heater_2_prefix: "heater_living_2"
+            script_name: "script.heater_pilot_wire_confort"
+      turn_off:
+        # Frost Protection mode
+        service: script.turn_on
+        entity_id: script.two_heaters_pilot_wire
+        data:
+          variables:
+            heater_1_prefix: "heater_living_1"
+            heater_2_prefix: "heater_living_2"
+            script_name: "script.heater_pilot_wire_frostprotection"

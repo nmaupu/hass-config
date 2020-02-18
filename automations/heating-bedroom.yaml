@@ -10,7 +10,6 @@
       entity_id: climate.bedroom
       data:
         temperature: 19.5
-      entity_id: climate.bedroom
 
 - alias: Heating ECO bedroom (night)
   trigger:
@@ -37,7 +36,6 @@
       entity_id: climate.bedroom
       data:
         temperature: 19.5
-      entity_id: climate.bedroom
 
 - alias: Heating OFF bedroom (day)
   trigger:

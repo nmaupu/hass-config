@@ -43,7 +43,7 @@ heater_pilot_wire_frostprotection:
         entity_id: 'switch.{{ switch_prefix }}_2'
 
 heater_pilot_wire_off:
-  description: turn heater off
+  description: turn heater off # Also called "delestage" in french
   fields:
     switch_prefix:
       description: "Switch name prefix to act on"
@@ -67,3 +67,81 @@ heater_pilot_wire_eco:
     - service: switch.turn_on
       data_template:
         entity_id: 'switch.{{ switch_prefix }}_2'
+
+two_heaters_pilot_wire:
+  description: set pilot wire state on two heaters
+  fields:
+    heater_1_prefix:
+      description: "Name of the first heater to act on"
+    heater_2_prefix:
+      description: "Name of the second heater to act on"
+    script_name:
+      description: script name to call for each device
+  sequence:
+    - service: script.turn_on
+      data_template:
+        entity_id: "{{ script_name }}"
+        variables:
+          switch_prefix: "{{ heater_1_prefix }}"
+    - service: script.turn_on
+      data_template:
+        entity_id: "{{ script_name }}"
+        variables:
+          switch_prefix: "{{ heater_2_prefix }}"
+
+#two_heaters_confort:
+#  description: turn two heaters on
+#  fields:
+#    heater_1_prefix:
+#      description: "Name of the first heater to act on"
+#    heater_2_prefix:
+#      description: "Name of the second heater to act on"
+#  sequence:
+#    - service: script.turn_on
+#      entity_id: script.heater_pilot_wire_confort
+#      data_templates:
+#        variables:
+#          switch_prefix: "{{ heater_1_prefix }}"
+#    - service: script.turn_on
+#      entity_id: script.heater_pilot_wire_confort
+#      data_templates:
+#        variables:
+#          switch_prefix: "{{ heater_2_prefix }}"
+#
+#two_heaters_frostprotection:
+#  description: turn two heaters to frost protection mode
+#  fields:
+#    heater_1_prefix:
+#      description: "Name of the first heater to act on"
+#    heater_2_prefix:
+#      description: "Name of the second heater to act on"
+#  sequence:
+#    - service: script.turn_on
+#      entity_id: script.heater_pilot_wire_frostprotection
+#      data_templates:
+#        variables:
+#          switch_prefix: "{{ heater_1_prefix }}"
+#    - service: script.turn_on
+#      entity_id: script.heater_pilot_wire_frostprotection
+#      data_templates:
+#        variables:
+#          switch_prefix: "{{ heater_2_prefix }}"
+#
+#two_heaters_off:
+#  description: turn off two heaters
+#  fields:
+#    heater_1_prefix:
+#      description: "Name of the first heater to act on"
+#    heater_2_prefix:
+#      description: "Name of the second heater to act on"
+#  sequence:
+#    - service: script.turn_on
+#      entity_id: script.heater_pilot_wire_off
+#      data_templates:
+#        variables:
+#          switch_prefix: "{{ heater_1_prefix }}"
+#    - service: script.turn_on
+#      entity_id: script.heater_pilot_wire_off
+#      data_templates:
+#        variables:
+#          switch_prefix: "{{ heater_2_prefix }}"
