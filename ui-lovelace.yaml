@@ -134,6 +134,9 @@ views:
       - type: thermostat
         entity: climate.bedroom
         name: Bedroom
+      - type: thermostat
+        entity: climate.living
+        name: Living
   - title: Temperature
     path: temperature
     icon: 'mdi:thermometer'
