@@ -1,0 +1,74 @@
+# thermostats
+- alias: 'Cal thermostats'
+  initial_state: true
+  trigger:
+    - platform: state
+      entity_id:
+        - calendar.thermostat_bedroom
+        - calendar.thermostat_living
+  action:
+    - service: system_log.write
+      data_template:
+        level: info
+        message: |
+          to_state = {{ trigger.to_state.state }}
+          entity_id = {{ trigger.entity_id }}
+          device_name = {{ state_attr(trigger.entity_id, 'message') }}
+          description = {{ state_attr(trigger.entity_id, 'description') }}
+    - service: script.climate_set
+      data_template:
+        state: >-
+          {% set evtStr = state_attr(trigger.entity_id, 'description') %}
+          {% if evtStr is not none and evtStr != "" %}
+            {% set evt = evtStr | lower | from_json %}
+            {{ 'eco' if 'eco' in evt else trigger.to_state.state }}
+          {% else %}
+            {{ trigger.to_state.state }}
+          {% endif %}
+        entity_id: >-
+          {% set str = state_attr(trigger.entity_id, 'message') %}
+          {% if str is not none and str | string | lower | regex_search("#([a-z0-9]+)") %}
+            {% set device_name = str | string | lower | regex_findall_index("#([a-z0-9]+)") %}
+            climate.{{ device_name }}
+          {% else %}
+            climate.unknown
+          {% endif %}
+        temperature: >-
+          {% set evtStr = state_attr(trigger.entity_id, 'description') %}
+          {% if evtStr is not none and evtStr != "" %}
+            {% set evt = evtStr | lower | from_json %}
+            {{ evt.temperature | float(default=18) }}
+          {% else %}
+            {{ "18" | float }}
+          {% endif %}
+
+# Normal lights
+- alias: 'Cal light switches ON/OFF'
+  initial_state: true
+  trigger:
+    - platform: state
+      entity_id:
+        - calendar.light_dressing
+        - calendar.light_piano
+        - calendar.light_entree
+        - calendar.light_escalier
+        - calendar.light_basement_escalier
+  action:
+    - service: system_log.write
+      data_template:
+        level: info
+        message: |
+          to_state = {{ trigger.to_state.state }}
+          entity_id = {{ trigger.entity_id }}
+          device_name = {{ state_attr(trigger.entity_id, 'message') }}
+          description = {{ state_attr(trigger.entity_id, 'description') }}
+    - service_template: >
+         light.turn_{{ trigger.to_state.state }}
+      data_template:
+        entity_id: >-
+          {% set str = state_attr(trigger.entity_id, 'message') %}
+          {% if str is not none and str | lower | regex_search("#([a-z0-9]+)") %}
+            light.{{ str | lower | regex_findall_index("#([a-z0-9]+)") }}_switch
+          {% else %}
+            light.unknown_switch
+          {% endif %}

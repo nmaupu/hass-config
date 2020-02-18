@@ -1,0 +1,29 @@
+climate_set:
+  description: Set a climate ON or OFF with a temperature
+  fields:
+    entity_id:
+      description: "Climate entity to act on"
+    state:
+      description: "Turn climate on, off or eco"
+    temperature:
+      description: "Set the climate entity's temperature"
+  sequence:
+    - service: climate.set_temperature
+      data_template:
+        entity_id: "{{ entity_id }}"
+        temperature: >-
+          {% if state|lower == 'on' %}
+            {{ temperature }}
+          {% elif state|lower == 'eco' %}
+            16
+          {% else %}
+            12
+          {% endif %}
+    - service_template: >-
+        {% if state|lower == 'eco' %}
+          climate.turn_on
+        {% else %}
+          climate.turn_{{ state }}
+        {% endif %}
+      data_template:
+        entity_id: "{{ entity_id }}"

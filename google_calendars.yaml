@@ -6,6 +6,14 @@
     track: true
     search: "#bedroom"
 
+- cal_id: !secret google_cal_thermostats
+  entities:
+  - device_id: thermostat_living
+    ignore_availability: true
+    name: thermostat_living
+    track: true
+    search: "#living"
+
 - cal_id: !secret google_cal_lights
   entities:
   - device_id: light_dressing
