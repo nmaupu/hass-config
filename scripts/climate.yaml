@@ -7,20 +7,30 @@ climate_set:
       description: "Turn climate on, off or eco"
     temperature:
       description: "Set the climate entity's temperature"
+    temperature_eco:
+      description: "Set the climate entity's temperature for eco mode"
   sequence:
+    - service: system_log.write
+      data_template:
+        level: info
+        message: |
+          entity_id = {{ entity_id }}
+          state = {{ state }}
+          temperature = {{ temperature }}
+          temperature_eco = {{ temperature_eco }}
     - service: climate.set_temperature
       data_template:
         entity_id: "{{ entity_id }}"
         temperature: >-
-          {% if state|lower == 'on' %}
+          {% if state == 'on' %}
             {{ temperature }}
-          {% elif state|lower == 'eco' %}
-            16
+          {% elif state == 'eco' %}
+            {{ temperature_eco | float(default=16) }}
           {% else %}
             12
           {% endif %}
     - service_template: >-
-        {% if state|lower == 'eco' %}
+        {% if state == 'eco' %}
           climate.turn_on
         {% else %}
           climate.turn_{{ state }}

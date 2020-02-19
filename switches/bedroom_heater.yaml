@@ -13,9 +13,10 @@
       friendly_name: "Bedroom heater"
       # If both switches are OFF, heater is in "confort" mode, so is ON
       # But R1 is inverted so ON/OFF is confort mode
-      value_template: "{{ is_state('switch.heater_bedroom_1', 'on') and is_state('switch.heater_bedroom_2', 'off') }}"
+      value_template: >
+        {{ is_state('switch.heater_bedroom_1', 'on') and is_state('switch.heater_bedroom_2', 'off') }}
       icon_template: >
-        {% if states.switch.heater_bedroom_1.state == "on" and states.switch.heater_bedroom_2.state == "off" %}
+        {% if is_state('switch.heater_bedroom_1', 'on') and is_state('switch.heater_bedroom_2', 'off') %}
           mdi:radiator
         {% else %}
           mdi:radiator-off
@@ -26,11 +27,11 @@
         entity_id: script.heater_pilot_wire_confort
         data:
           variables:
-            switch_prefix: "bedroom_heater"
+            switch_prefix: "heater_bedroom"
       turn_off:
         # Frost Protection mode
         service: script.turn_on
         entity_id: script.heater_pilot_wire_frostprotection
         data:
           variables:
-            switch_prefix: "bedroom_heater"
+            switch_prefix: "heater_bedroom"
