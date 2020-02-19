@@ -137,6 +137,14 @@ views:
       - type: thermostat
         entity: climate.living
         name: Living
+      - type: 'custom:auto-entities'
+        card:
+          type: entities
+          title: Test
+          show_header_toggle: false
+        filter:
+          include:
+            - entity_id: "switch.*heater*"
   - title: Temperature
     path: temperature
     icon: 'mdi:thermometer'
