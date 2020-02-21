@@ -1,4 +1,6 @@
+# Migrated to node red
 - alias: 'Estrade dehumidifier ON'
+  initial_state: 'false'
   trigger:
   - platform: numeric_state
     entity_id: sensor.estrade_am2301_humidity
@@ -15,6 +17,7 @@
       entity_id: switch.estrade_relay
 
 - alias: 'Estrade dehumidifier morning ON'
+  initial_state: 'false'
   trigger:
   - platform: time
     at: '10:00:00'
@@ -25,6 +28,7 @@
      entity_id: switch.estrade_relay
 
 - alias: 'Estrade dehumidifier OFF if below'
+  initial_state: 'false'
   trigger:
   - platform: numeric_state
     above: '5'
