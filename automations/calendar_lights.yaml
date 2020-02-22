@@ -1,6 +1,6 @@
 # dimmers
 - alias: 'Cal light dimmers ON/OFF'
-  initial_state: true
+  initial_state: false
   trigger:
     - platform: state
       entity_id:
@@ -40,7 +40,7 @@
 
 # Normal lights
 - alias: 'Cal light switches ON/OFF'
-  initial_state: true
+  initial_state: false
   trigger:
     - platform: state
       entity_id:
