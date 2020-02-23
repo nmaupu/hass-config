@@ -1,6 +1,6 @@
 # thermostats
 - alias: 'Cal thermostats'
-  initial_state: true
+  initial_state: false
   trigger:
     - platform: state
       entity_id:
@@ -60,7 +60,7 @@
 
 # Normal lights
 - alias: 'Cal light switches ON/OFF'
-  initial_state: true
+  initial_state: false
   trigger:
     - platform: state
       entity_id:
