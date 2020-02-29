@@ -59,3 +59,4 @@ group: !include groups.yaml
 mqtt: !include mqtt.yaml
 switch: !include_dir_merge_list switches/
 climate: !include_dir_merge_list climates/
+input_boolean: !include_dir_merge_named input_booleans/
