@@ -57,34 +57,3 @@
           {% else %}
             16
           {% endif %}
-
-# Normal lights
-- alias: 'Cal light switches ON/OFF'
-  initial_state: false
-  trigger:
-    - platform: state
-      entity_id:
-        - calendar.light_dressing
-        - calendar.light_piano
-        - calendar.light_entree
-        - calendar.light_escalier
-        - calendar.light_basement_escalier
-  action:
-    - service: system_log.write
-      data_template:
-        level: info
-        message: |
-          to_state = {{ trigger.to_state.state }}
-          entity_id = {{ trigger.entity_id }}
-          device_name = {{ state_attr(trigger.entity_id, 'message') }}
-          description = {{ state_attr(trigger.entity_id, 'description') }}
-    - service_template: >
-         light.turn_{{ trigger.to_state.state }}
-      data_template:
-        entity_id: >-
-          {% set str = state_attr(trigger.entity_id, 'message') %}
-          {% if str is not none and str | lower | regex_search("#([a-z0-9]+)") %}
-            light.{{ str | lower | regex_findall_index("#([a-z0-9]+)") }}_switch
-          {% else %}
-            light.unknown_switch
-          {% endif %}
