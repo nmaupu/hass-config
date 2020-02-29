@@ -52,16 +52,16 @@
     track: true
     search: "#table"
 
-- cal_id: en.french#holiday@group.v.calendar.google.com
-  entities:
-  - device_id: holidays_fr
-    ignore_availability: true
-    name: Holidays in France
-    track: true
-
 - cal_id: fr.french#holiday@group.v.calendar.google.com
   entities:
   - device_id: non_working_days_fr
     ignore_availability: true
     name: "Jours f\xE9ri\xE9s en France"
+    track: true
+
+- cal_id: vbe7eb67ql9innkhq4ctmt66d9hcsq6v@import.calendar.google.com
+  entities:
+  - device_id: holidays
+    ignore_availability: true
+    name: "Vacances scolaires zone C"
     track: true

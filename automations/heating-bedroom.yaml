@@ -1,4 +1,5 @@
 - alias: Heating ON bedroom (evening)
+  initial_state: true
   trigger:
     - platform: time
       at: '22:00'
@@ -12,6 +13,7 @@
         temperature: 19.5
 
 - alias: Heating ECO bedroom (night)
+  initial_state: true
   trigger:
     - platform: time
       at: '02:00'
@@ -25,6 +27,7 @@
         temperature: 18
 
 - alias: Heating ON bedroom (morning)
+  initial_state: true
   trigger:
     - platform: time
       at: '08:10'
@@ -38,6 +41,7 @@
         temperature: 19.5
 
 - alias: Heating OFF bedroom (day)
+  initial_state: true
   trigger:
     - platform: time
       at: '09:50'
