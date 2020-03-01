@@ -14,6 +14,22 @@
     track: true
     search: "#living"
 
+- cal_id: !secret google_cal_thermostats
+  entities:
+  - device_id: thermostat_vacation_out
+    ignore_availability: true
+    name: thermostat_vacation_out
+    track: true
+    search: "#vacation_out"
+
+- cal_id: !secret google_cal_thermostats
+  entities:
+  - device_id: thermostat_vacation_in
+    ignore_availability: true
+    name: thermostat_vacation_in
+    track: true
+    search: "#vacation_in"
+
 - cal_id: !secret google_cal_lights
   entities:
   - device_id: light_dressing
