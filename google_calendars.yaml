@@ -5,28 +5,19 @@
     name: thermostat_bedroom
     track: true
     search: "#bedroom"
-
-- cal_id: !secret google_cal_thermostats
-  entities:
   - device_id: thermostat_living
     ignore_availability: true
     name: thermostat_living
     track: true
     search: "#living"
-
-- cal_id: !secret google_cal_thermostats
-  entities:
-  - device_id: thermostat_vacation_out
+  - device_id: vacation_out
     ignore_availability: true
-    name: thermostat_vacation_out
+    name: vacation_out
     track: true
     search: "#vacation_out"
-
-- cal_id: !secret google_cal_thermostats
-  entities:
-  - device_id: thermostat_vacation_in
+  - device_id: vacation_in
     ignore_availability: true
-    name: thermostat_vacation_in
+    name: vacation_in
     track: true
     search: "#vacation_in"
 
