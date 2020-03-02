@@ -2,3 +2,8 @@ override_heater_living:
   name: Manual override living's heaters
   initial: off
   icon: mdi:hand
+
+override_heater_bedroom:
+  name: Manual override bedroom heaters
+  initial: off
+  icon: mdi:hand
