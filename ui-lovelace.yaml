@@ -144,7 +144,7 @@ views:
           show_header_toggle: false
         filter:
           include:
-            - entity_id: "input_boolean.*override_heater*"
+            - entity_id: "input_boolean.override_heater_*"
       - type: 'custom:auto-entities'
         card:
           type: entities
