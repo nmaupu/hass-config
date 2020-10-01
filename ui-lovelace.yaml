@@ -13,7 +13,7 @@ resources:
 custom_header:
   compact_mode: true
   header_text: '{{ date }} - {{ time }}'
-  footer_mode: true
+  footer_mode: false
   hide_help: false
 views:
   - title: Lights
