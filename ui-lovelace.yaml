@@ -151,7 +151,7 @@ views:
       - type: 'custom:auto-entities'
         card:
           type: entities
-          title: Test
+          title: Debug
           show_header_toggle: false
         filter:
           include:
