@@ -1,5 +1,10 @@
 - cal_id: !secret google_cal_thermostats
   entities:
+  - device_id: thermostat_blue
+    ignore_availability: true
+    name: thermostat_blue
+    track: true
+    search: "#blue"
   - device_id: thermostat_bedroom
     ignore_availability: true
     name: thermostat_bedroom

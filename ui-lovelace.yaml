@@ -135,6 +135,9 @@ views:
         entity: climate.bedroom
         name: Bedroom
       - type: thermostat
+        entity: climate.blue
+        name: Blue
+      - type: thermostat
         entity: climate.living
         name: Living
       - type: 'custom:auto-entities'

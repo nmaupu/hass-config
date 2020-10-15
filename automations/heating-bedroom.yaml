@@ -1,3 +1,5 @@
+# Deprectated, now using nodered
+# Set to deactivated here for reference
 - alias: Heating ON bedroom (evening)
   initial_state: false
   trigger:

@@ -4,7 +4,7 @@
   heater: switch.bedroom_heater
   target_sensor: sensor.bedroom_hum_temp_temperature
   min_temp: 15
-  max_temp: 22
+  max_temp: 23
   precision: 0.1
   ac_mode: false
   target_temp: 18
