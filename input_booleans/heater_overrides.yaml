@@ -12,3 +12,8 @@ override_heater_blue:
   name: Manual override blue room heater
   initial: off
   icon: mdi:hand
+
+override_heater_prog:
+  name: Manually deactivate heaters' programmation
+  initial: off
+  icon: mdi:hand
