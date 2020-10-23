@@ -68,6 +68,14 @@ views:
               entity_id: "light.*_switch"
         sort:
           method: name
+      - type: 'custom:auto-entities'
+        card:
+          type: entities
+          title: Random
+          show_header_toggle: false
+        filter:
+          include:
+            - entity_id: "input_boolean.random_lights"
   - title: Weather
     path: weather
     icon: 'mdi:weather-partly-cloudy'
