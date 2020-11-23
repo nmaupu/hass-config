@@ -193,6 +193,14 @@ views:
             - entity_id: "sensor.darksky*"
         sort:
           method: name
+      - type: 'custom:auto-entities'
+        card:
+          type: entities
+          title: Estrade dehumidifier
+          show_header_toggle: false
+        filter:
+          include:
+            - entity_id: "input_boolean.override_estrade_dehum"
   - title: battery
     path: battery
     icon: 'mdi:battery-70'

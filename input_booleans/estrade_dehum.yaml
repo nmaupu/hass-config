@@ -1,0 +1,4 @@
+override_estrade_dehum:
+  name: Ignore time range for estrade dehumifier
+  initial: off
+  icon: mdi:hand
