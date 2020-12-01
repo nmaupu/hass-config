@@ -12,5 +12,5 @@
   min_cycle_duration:
     seconds: 10
   initial_hvac_mode: "heat"
-  cold_tolerance: 0.3
+  cold_tolerance: 0.1
   hot_tolerance: 0.1

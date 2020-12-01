@@ -3,14 +3,14 @@
   name: living
   heater: switch.living_heaters
   target_sensor: sensor.living_hum_temp_temperature
-  min_temp: 12
+  min_temp: 15
   max_temp: 23
   precision: 0.1
   ac_mode: false
   target_temp: 18
-  away_temp: 15
+  away_temp: 16
   min_cycle_duration:
     seconds: 10
   initial_hvac_mode: "heat"
-  cold_tolerance: 0.3
+  cold_tolerance: 0.1
   hot_tolerance: 0.1
