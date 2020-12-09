@@ -27,6 +27,11 @@ http:
   ssl_key: /home/homeassistant/certs/privkey.pem
   base_url: !secret http_baseurl
 
+remote:
+  - platform: harmony
+    name: HarmonyHub
+    host: 192.168.12.238
+
 # See https://www.home-assistant.io/integrations/emulated_roku/
 # Used to control hass from Logitech Harmony remote
 emulated_roku:
