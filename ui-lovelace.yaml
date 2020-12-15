@@ -22,7 +22,7 @@ views:
     badges: []
     cards:
       - type: horizontal-stack
-        columns: 2
+        columns: 3
         cards:
           - type: light
             entity: light.poutre_dimmer
