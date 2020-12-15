@@ -32,6 +32,10 @@ views:
             entity: light.table_dimmer
             name: Table
             icon: 'mdi:lightbulb'
+          - type: light
+            entity: light.living_ball_switch
+            name: Ball
+            icon: 'mdi:lightbulb'
       - type: 'custom:auto-entities'
         card:
           type: entities
@@ -299,6 +303,7 @@ views:
         entities:
           - light.poutre_dimmer
           - light.table_dimmer
+          - light.living_ball_switch
         title: Living
         show_header_toggle: true
       - type: entities
