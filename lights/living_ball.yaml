@@ -6,12 +6,7 @@
         {% if is_state('switch.living_ball','on') %}255{% else %}0{% endif %}
       value_template: >
         {{ is_state('switch.living_ball','on') }}
-      icon_template: >
-        {% if is_state('switch.living_ball', 'off') %}
-          mdi:lightbulb
-        {% else %}
-          mdi:lightbulb-on
-        {% endif %}
+      icon_template: mdi:lightbulb
       turn_on:
         service: switch.turn_on
         entity_id: switch.living_ball
