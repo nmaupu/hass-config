@@ -21,21 +21,31 @@ views:
     icon: 'mdi:lightbulb'
     badges: []
     cards:
-      - type: horizontal-stack
-        columns: 3
+      - type: vertical-stack
         cards:
-          - type: light
-            entity: light.poutre_dimmer
-            name: Poutre
-            icon: 'mdi:lightbulb'
-          - type: light
-            entity: light.table_dimmer
-            name: Table
-            icon: 'mdi:lightbulb'
-          - type: light
-            entity: light.living_ball_switch
-            name: Ball
-            icon: 'mdi:lightbulb'
+          - type: horizontal-stack
+            columns: 2
+            cards:
+              - type: light
+                entity: light.poutre_dimmer
+                name: Poutre
+                icon: 'mdi:lightbulb'
+              - type: light
+                entity: light.table_dimmer
+                name: Table
+                icon: 'mdi:lightbulb'
+          - type: 'custom:auto-entities'
+            card:
+              type: entities
+              show_header_toggle: true
+              title: Living
+            filter:
+              include:
+                - domain: light
+                  group: group.living_lights
+                  entity_id: "light.*_switch"
+            sort:
+              method: name
       - type: 'custom:auto-entities'
         card:
           type: entities
