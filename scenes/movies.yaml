@@ -1,9 +1,0 @@
-- name: Movies
-  icon: "mdi:television"
-  entities:
-    light.table_dimmer: "off"
-    light.poutre_dimmer:
-      state: "on"
-      brightness: "63"
-    light.escalier_switch: "on"
-    light.piano_switch: "off"
