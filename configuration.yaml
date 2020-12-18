@@ -23,9 +23,10 @@ homeassistant:
 
 http:
   server_port: 8123
-  ssl_certificate: /home/homeassistant/certs/fullchain.pem
-  ssl_key: /home/homeassistant/certs/privkey.pem
-  base_url: !secret http_baseurl
+  base_url: http://192.168.12.35
+  #  ssl_certificate: /home/homeassistant/certs/fullchain.pem
+  #  ssl_key: /home/homeassistant/certs/privkey.pem
+  #  base_url: !secret http_baseurl
 
 remote:
   - platform: harmony
