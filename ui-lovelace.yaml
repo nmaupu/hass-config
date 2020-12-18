@@ -46,6 +46,10 @@ views:
                   entity_id: "light.*_switch"
             sort:
               method: name
+          - type: light
+            entity: light.bedroom_bedlight_left
+            name: Bed left
+            icon: 'mdi:lightbulb'
       - type: 'custom:auto-entities'
         card:
           type: entities

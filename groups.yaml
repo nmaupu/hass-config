@@ -15,3 +15,6 @@ living_lights:
 
 basement_lights:
   - light.basement_escalier_switch
+
+bedroom:
+  - light.bedroom_bedlight_left
