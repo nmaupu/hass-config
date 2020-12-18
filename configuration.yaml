@@ -28,9 +28,11 @@ homeassistant:
 #  base_url: !secret http_baseurl
 http:
   server_port: 8123
+  ssl_certificate: /home/homeassistant/certs/fullchain.pem
+  ssl_key: /home/homeassistant/certs/privkey.pem
   cors_allowed_origins:
-    - http://hass.home.fossar.net:8213
-    - http://hass.home.fossar.net
+    - https://hass.home.fossar.net:8213
+    - https://hass.home.fossar.net
 
 remote:
   - platform: harmony
@@ -47,7 +49,7 @@ emulated_roku:
 lovelace:
   mode: yaml
 
-default_config:
+#default_config:
 
 frontend:
   themes: !include_dir_merge_named themes/
