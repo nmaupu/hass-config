@@ -47,7 +47,7 @@ views:
             sort:
               method: name
           - type: light
-            entity: light.bedroom_bedlight_left
+            entity: light.bedroom_left_dimmer
             name: Bed left
             icon: 'mdi:lightbulb'
       - type: 'custom:auto-entities'
