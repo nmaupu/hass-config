@@ -48,9 +48,6 @@ emulated_roku:
 
 lovelace:
   mode: yaml
-  resources:
-    - url: /local/zigbee2mqtt-networkmap.js?v=0.6.0
-      type: module
 
 #default_config:
 
@@ -70,6 +67,17 @@ google:
   client_id: !secret google_api_clientid
   client_secret: !secret google_api_clientsecret
   track_new_calendar: false
+
+# Zigbee network map
+webhook:
+
+zigbee2mqtt_networkmap:
+  #topic: your topic (optional, default zigbee2mqtt)
+ panel_iframe:
+   networkmap:
+     title: 'Zigbee Map'
+     url: '/local/community/zigbee2mqtt_networkmap/map.html'
+     icon: 'mdi:graphql'
 
 script: !include_dir_merge_named scripts/
 light: !include_dir_merge_list lights/
