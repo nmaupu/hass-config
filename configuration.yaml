@@ -48,9 +48,6 @@ emulated_roku:
 
 lovelace:
   mode: yaml
-  resources:
-    - url: /local/zigbee2mqtt-networkmap.js?v=0.6.0
-      type: module
 
 #default_config:
 
