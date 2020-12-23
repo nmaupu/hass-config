@@ -49,7 +49,7 @@ emulated_roku:
 lovelace:
   mode: yaml
 
-#default_config:
+default_config:
 
 frontend:
   themes: !include_dir_merge_named themes/
