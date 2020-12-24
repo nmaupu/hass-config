@@ -46,10 +46,17 @@ views:
                   entity_id: "light.*_switch"
             sort:
               method: name
-          - type: light
-            entity: light.bedroom_left_dimmer
-            name: Bed left
-            icon: 'mdi:lightbulb'
+          - type: horizontal-stack
+            column: 2
+            cards:
+              - type: light
+                entity: light.bedroom_left_dimmer
+                name: Bed left
+                icon: 'mdi:lightbulb'
+              - type: light
+                entity: light.bedroom_bathroom_dimmer
+                name: Shower room
+                icon: 'mdi:lightbulb'
       - type: 'custom:auto-entities'
         card:
           type: entities
