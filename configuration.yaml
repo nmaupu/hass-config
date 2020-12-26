@@ -37,7 +37,7 @@ http:
 remote:
   - platform: harmony
     name: HarmonyHub
-    host: 192.168.12.238
+    host: 192.168.12.20
 
 # See https://www.home-assistant.io/integrations/emulated_roku/
 # Used to control hass from Logitech Harmony remote
