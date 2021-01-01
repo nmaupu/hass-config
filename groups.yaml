@@ -13,6 +13,9 @@ living_lights:
   - light.table_dimmer
   - light.living_ball_switch
 
+kitchen_lights:
+  - light.kitchen_switch
+
 basement_lights:
   - light.basement_escalier_switch
 

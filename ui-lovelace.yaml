@@ -38,11 +38,14 @@ views:
             card:
               type: entities
               show_header_toggle: true
-              title: Living
+              title: Upstairs
             filter:
               include:
                 - domain: light
                   group: group.living_lights
+                  entity_id: "light.*_switch"
+                - domain: light
+                  group: group.kitchen_lights
                   entity_id: "light.*_switch"
             sort:
               method: name
