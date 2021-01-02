@@ -13,7 +13,12 @@ override_heater_blue:
   initial: off
   icon: mdi:hand
 
+override_heater_kitchen:
+  name: Manual override kitchen heater
+  initial: off
+  icon: mdi:hand
+
 override_heater_prog:
-  name: Manually deactivate heaters' programmation
+  name: Manually deactivate progr.
   initial: off
   icon: mdi:hand

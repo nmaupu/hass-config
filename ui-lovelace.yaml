@@ -176,6 +176,9 @@ views:
       - type: thermostat
         entity: climate.living
         name: Living
+      - type: thermostat
+        entity: climate.kitchen
+        name: Kitchen
       - type: 'custom:auto-entities'
         card:
           type: entities
