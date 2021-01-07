@@ -21,6 +21,10 @@ homeassistant:
       trusted_networks:
         - 192.168.12.0/24
 
+websocket_api:
+
+
+
 #http:
 #  server_port: 8123
 #  ssl_certificate: /home/homeassistant/certs/fullchain.pem
