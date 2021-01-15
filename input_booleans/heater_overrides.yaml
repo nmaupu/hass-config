@@ -18,6 +18,11 @@ override_heater_kitchen:
   initial: off
   icon: mdi:hand
 
+override_heater_hall:
+  name: Manual override hall heater
+  initial: off
+  icon: mdi:hand
+
 override_heater_prog:
   name: Manually deactivate progr.
   initial: off

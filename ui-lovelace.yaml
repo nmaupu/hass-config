@@ -179,6 +179,9 @@ views:
       - type: thermostat
         entity: climate.kitchen
         name: Kitchen
+      - type: thermostat
+        entity: climate.hall
+        name: Hall
       - type: 'custom:auto-entities'
         card:
           type: entities
@@ -187,14 +190,6 @@ views:
         filter:
           include:
             - entity_id: "input_boolean.override_heater_*"
-      - type: 'custom:auto-entities'
-        card:
-          type: entities
-          title: Debug
-          show_header_toggle: false
-        filter:
-          include:
-            - entity_id: "switch.*heater*"
   - title: Temperature
     path: temperature
     icon: 'mdi:thermometer'
