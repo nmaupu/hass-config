@@ -15,6 +15,16 @@
     name: thermostat_living
     track: true
     search: "#living"
+  - device_id: thermostat_kitchen
+    ignore_availability: true
+    name: thermostat_kitchen
+    track: true
+    search: "#kitchen"
+  - device_id: thermostat_hall
+    ignore_availability: true
+    name: thermostat_hall
+    track: true
+    search: "#hall"
   - device_id: vacation_out
     ignore_availability: true
     name: vacation_out
