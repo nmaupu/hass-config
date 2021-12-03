@@ -186,6 +186,9 @@ views:
         entity: climate.blue
         name: Blue
       - type: thermostat
+        entity: climate.pink
+        name: Pink
+      - type: thermostat
         entity: climate.living
         name: Living
       - type: thermostat

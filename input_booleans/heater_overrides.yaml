@@ -13,6 +13,11 @@ override_heater_blue:
   initial: off
   icon: mdi:hand
 
+override_heater_pink:
+  name: Manual override pink room heater
+  initial: off
+  icon: mdi:hand
+
 override_heater_kitchen:
   name: Manual override kitchen heater
   initial: off

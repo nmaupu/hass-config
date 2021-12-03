@@ -5,6 +5,11 @@
     name: thermostat_blue
     track: true
     search: "#blue"
+  - device_id: thermostat_pink
+    ignore_availability: true
+    name: thermostat_pink
+    track: true
+    search: "#pink"
   - device_id: thermostat_bedroom
     ignore_availability: true
     name: thermostat_bedroom
