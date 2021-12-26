@@ -59,6 +59,10 @@ tplink:
 # Monitor brother printer
 brother:
 
+# Database configuration
+recorder:
+  commit_interval: 30
+
 lovelace:
   mode: yaml
 
