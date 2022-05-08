@@ -24,3 +24,6 @@ bedroom:
 
 blue_lights:
   - light.blue_desk_switch
+
+terrace_lights:
+  - light.terrace_switch

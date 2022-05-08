@@ -47,6 +47,9 @@ views:
                 - domain: light
                   group: group.kitchen_lights
                   entity_id: "light.*_switch"
+                - domain: light
+                  group: group.terrace_lights
+                  entity_id: "light.*_switch"
             sort:
               method: name
           - type: horizontal-stack
