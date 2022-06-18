@@ -312,6 +312,11 @@ views:
       - entity: sensor.basement_main_hum_temp_pressure
       - entity: sensor.basement_main_hum_temp_battery
       - entity: sensor.basement_main_hum_temp_linkquality
+      - entity: sensor.basement_bedroom_hum_temp_temperature
+      - entity: sensor.basement_bedroom_hum_temp_humidity
+      - entity: sensor.basement_bedroom_hum_temp_pressure
+      - entity: sensor.basement_bedroom_hum_temp_battery
+      - entity: sensor.basement_bedroom_hum_temp_linkquality
       - entity: sensor.kitchen_hum_temp_temperature
       - entity: sensor.kitchen_hum_temp_humidity
       - entity: sensor.kitchen_hum_temp_pressure
