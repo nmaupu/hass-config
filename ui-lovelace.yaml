@@ -112,7 +112,23 @@ views:
     path: weather
     icon: 'mdi:weather-partly-cloudy'
     badges: []
-    cards: []
+    cards:
+      - type: "custom:meteofrance-weather-card"
+        name: Saint-Ouen
+        entity: weather.saint_ouen
+        cloudCoverEntity: sensor.saint_ouen_cloud_cover
+        rainChanceEntity: sensor.saint_ouen_rain_chance
+        freezeChanceEntity: sensor.saint_ouen_freeze_chance
+        snowChanceEntity: sensor.saint_ouen_snow_chance
+        uvEntity: sensor.saint_ouen_uv
+        rainForecastEntity: sensor.saint_ouen_next_rain
+        alertEntity: sensor.44_weather_alert
+        number_of_forecasts: "5"
+        current: true
+        details: true
+        one_hour_forecast: true
+        alert_forecast: true
+        forecast: true
   - title: Confort
     path: confort
     icon: 'mdi:radiator'
