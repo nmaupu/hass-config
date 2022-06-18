@@ -4,7 +4,7 @@
   heater: switch.living_heaters
   target_sensor: sensor.living_hum_temp_temperature
   min_temp: 15
-  max_temp: 23
+  max_temp: 35
   precision: 0.1
   ac_mode: false
   target_temp: 18
