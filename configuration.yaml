@@ -61,6 +61,17 @@ recorder:
 
 lovelace:
   mode: yaml
+  resources:
+    - url: /local/auto-entities/auto-entities.js
+      type: module
+    - url: /local/custom-header.js
+      type: module
+    - url: /local/lovelace-cards/tiles-card/tiles-card.js
+      type: js
+    - url: /local/mini-graph-card-bundle.js
+      type: module
+    - url: /local/custom_ui/dark-sky-weather-card.js
+      type: module
 
 default_config:
 
