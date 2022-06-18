@@ -55,9 +55,6 @@ emulated_roku:
 # Monitor brother printer
 brother:
 
-# meteo france
-meteo_france:
-
 # Database configuration
 recorder:
   commit_interval: 30
