@@ -193,8 +193,8 @@ views:
         filter:
           include:
             - entity_id: "input_boolean.override_estrade_dehum"
-  - title: battery
-    path: battery
+  - title: Battery
+    path: Battery
     icon: 'mdi:battery-70'
     badges: []
     cards:
@@ -213,127 +213,18 @@ views:
           method: state
           reverse: false
           numeric: true
-  - path: default_view
-    title: Test
-    badges:
-      - entity: binary_sensor.updater
-      - entity: binary_sensor.basement_leak_water_leak
-      - entity: binary_sensor.elec_router_router
-      - entity: binary_sensor.heater_bedroom_1_button1
-      - entity: sensor.estrade_am2301_temperature
-      - entity: sensor.estrade_am2301_humidity
-      - entity: sensor.estrade_status
-      - entity: sensor.estrade_relay_status
-      - entity: sensor.living_hum_temp_temperature
-      - entity: sensor.living_hum_temp_humidity
-      - entity: sensor.living_hum_temp_pressure
-      - entity: sensor.living_hum_temp_battery
-      - entity: sensor.living_hum_temp_linkquality
-      - entity: sensor.basement_leak_battery
-      - entity: sensor.basement_leak_linkquality
-      - entity: sensor.elec_router_linkquality
-      - entity: sensor.kitchen_vibr_window_action
-      - entity: sensor.kitchen_vibr_window_battery
-      - entity: sensor.kitchen_vibr_window_sensitivity
-      - entity: sensor.kitchen_vibr_window_linkquality
-      - entity: sensor.basement_vibr_escalier_action
-      - entity: sensor.basement_vibr_escalier_battery
-      - entity: sensor.basement_vibr_escalier_sensitivity
-      - entity: sensor.basement_vibr_escalier_linkquality
-      - entity: sensor.blue_hum_temp_temperature
-      - entity: sensor.blue_hum_temp_humidity
-      - entity: sensor.blue_hum_temp_pressure
-      - entity: sensor.blue_hum_temp_battery
-      - entity: sensor.blue_hum_temp_linkquality
-      - entity: sensor.pink_hum_temp_temperature
-      - entity: sensor.pink_hum_temp_humidity
-      - entity: sensor.pink_hum_temp_pressure
-      - entity: sensor.pink_hum_temp_battery
-      - entity: sensor.pink_hum_temp_linkquality
-      - entity: sensor.bedroom_hum_temp_temperature
-      - entity: sensor.bedroom_hum_temp_humidity
-      - entity: sensor.bedroom_hum_temp_pressure
-      - entity: sensor.bedroom_hum_temp_battery
-      - entity: sensor.bedroom_hum_temp_linkquality
-      - entity: sensor.basement_main_hum_temp_temperature
-      - entity: sensor.basement_main_hum_temp_humidity
-      - entity: sensor.basement_main_hum_temp_pressure
-      - entity: sensor.basement_main_hum_temp_battery
-      - entity: sensor.basement_main_hum_temp_linkquality
-      - entity: sensor.basement_bedroom_hum_temp_temperature
-      - entity: sensor.basement_bedroom_hum_temp_humidity
-      - entity: sensor.basement_bedroom_hum_temp_pressure
-      - entity: sensor.basement_bedroom_hum_temp_battery
-      - entity: sensor.basement_bedroom_hum_temp_linkquality
-      - entity: sensor.basement_cave_hum_temp_temperature
-      - entity: sensor.basement_cave_hum_temp_humidity
-      - entity: sensor.basement_cave_hum_temp_pressure
-      - entity: sensor.basement_cave_hum_temp_battery
-      - entity: sensor.basement_cave_hum_temp_linkquality
-      - entity: sensor.kitchen_hum_temp_temperature
-      - entity: sensor.kitchen_hum_temp_humidity
-      - entity: sensor.kitchen_hum_temp_pressure
-      - entity: sensor.kitchen_hum_temp_battery
-      - entity: sensor.kitchen_hum_temp_linkquality
-      - entity: sensor.hall_hum_temp_temperature
-      - entity: sensor.hall_hum_temp_humidity
-      - entity: sensor.hall_hum_temp_pressure
-      - entity: sensor.hall_hum_temp_battery
-      - entity: sensor.hall_hum_temp_linkquality
-      - entity: sensor.heater_bedroom_1_status
-      - entity: sun.sun
+  - title: Debug
+    path: Debug
+    icon: 'mdi:account-hard-hat'
+    badges: []
     cards:
-      - type: entities
-        entities:
-          - switch.estrade
-          - switch.estrade_relay
-        title: Bedroom
-        show_header_toggle: true
-      - type: entities
-        entities:
-          - light.dressing_switch
-          - light.piano_switch
-          - light.escalier_switch
-          - light.entree_switch
-        title: Hall
-        show_header_toggle: true
-      - type: entities
-        entities:
-          - light.poutre_dimmer
-          - light.table_dimmer
-          - light.living_ball_switch
-        title: Living
-        show_header_toggle: true
-      - type: entities
-        entities:
-          - light.basement_escalier_switch
-        title: Basement
-        show_header_toggle: true
-      - type: entities
-        entities:
-          - automation.entree_auto_off
-          - automation.heating_on_bedroom_evening
-          - automation.turn_on_basement_escalier_light_on_vibration
-          - automation.estrade_dehumidifier_on
-          - automation.heating_eco_bedroom_night
-          - automation.heating_on_bedroom_morning
-          - automation.estrade_dehumidifier_morning_on
-          - automation.heating_off_bedroom_day
-          - automation.estrade_dehumidifier_off_if_below
-        title: Automation
-      - type: thermostat
-        entity: climate.bedroom
-      - type: entities
-        entities:
-          - script.heater_pilot_wire_frostprotection
-          - script.heater_pilot_wire_confort
-          - script.heater_pilot_wire_off
-          - script.reset_dehumidifier_on_automation
-          - script.heater_pilot_wire_eco
-        title: Script
-      - type: entities
-        entities:
-          - switch.heater_bedroom
-          - switch.heater_bedroom_1
-          - switch.heater_bedroom_2
-        title: Switch
+      - type: vertical-stack
+        cards:
+          - type: entity
+            entity: switch.yokis_hub
+            name: Yokis Hub
+            icon: 'mdi:router-wireless'
+          - type: entity
+            entity: switch.estrade_relay
+            name: Estrade Dehumidifier
+            icon: 'mdi:water'
