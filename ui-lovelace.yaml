@@ -228,3 +228,7 @@ views:
             entity: switch.estrade_relay
             name: Estrade Dehumidifier
             icon: 'mdi:water'
+          - type: entity
+            entity: switch.estrade_dehum_status
+            name: Estrade Dehumidifier Status LED
+            icon: 'mdi:alarm-light'
