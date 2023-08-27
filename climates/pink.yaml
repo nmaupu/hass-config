@@ -4,7 +4,7 @@
   heater: switch.pink_heater
   target_sensor: sensor.pink_hum_temp_temperature
   min_temp: 15
-  max_temp: 23
+  max_temp: 27
   precision: 0.1
   ac_mode: false
   target_temp: 18
