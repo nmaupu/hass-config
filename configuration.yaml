@@ -41,20 +41,12 @@ http:
     - https://hass.home.fossar.net:8213
     - https://hass.home.fossar.net
 
-remote:
-  - platform: harmony
-    name: HarmonyHub
-    host: 192.168.12.20
-
 # See https://www.home-assistant.io/integrations/emulated_roku/
 # Used to control hass from Logitech Harmony remote
 emulated_roku:
   servers:
     - name: Home Assistant
       listen_port: 8060
-
-# Monitor brother printer
-brother:
 
 # Database configuration
 recorder:
