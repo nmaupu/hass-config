@@ -33,12 +33,30 @@ views:
                 - domain: light
                   group: group.living_lights
                   entity_id: "light.*_switch"
+                  options:
+                    type: custom:template-entity-row
+                    name: >
+                      {{ config.entity | regex_replace(find='^light\.', replace='') | regex_replace(find='_switch$', replace='') | regex_replace(find='_', replace=' ') | title }}
+                    toggle: true
+                    active: "{{ is_state(config.entity, 'on') }}"
                 - domain: light
                   group: group.kitchen_lights
                   entity_id: "light.*_switch"
+                  options:
+                    type: custom:template-entity-row
+                    name: >
+                      {{ config.entity | regex_replace(find='^light\.', replace='') | regex_replace(find='_switch$', replace='') | regex_replace(find='_', replace=' ') | title }}
+                    toggle: true
+                    active: "{{ is_state(config.entity, 'on') }}"
                 - domain: light
                   group: group.terrace_lights
                   entity_id: "light.*_switch"
+                  options:
+                    type: custom:template-entity-row
+                    name: >
+                      {{ config.entity | regex_replace(find='^light\.', replace='') | regex_replace(find='_switch$', replace='') | regex_replace(find='_', replace=' ') | title }}
+                    toggle: true
+                    active: "{{ is_state(config.entity, 'on') }}"
             sort:
               method: name
           - type: horizontal-stack
@@ -62,6 +80,12 @@ views:
             - domain: light
               group: group.hall_lights
               entity_id: "light.*_switch"
+              options:
+                type: custom:template-entity-row
+                name: >
+                  {{ config.entity | regex_replace(find='^light\.', replace='') | regex_replace(find='_switch$', replace='') | regex_replace(find='_', replace=' ') | title }}
+                toggle: true
+                active: "{{ is_state(config.entity, 'on') }}"
         sort:
           method: name
       - type: 'custom:auto-entities'
@@ -74,6 +98,12 @@ views:
             - domain: light
               group: group.dressing_lights
               entity_id: "light.*_switch"
+              options:
+                type: custom:template-entity-row
+                name: >
+                  {{ config.entity | regex_replace(find='^light\.', replace='') | regex_replace(find='_switch$', replace='') | regex_replace(find='_', replace=' ') | title }}
+                toggle: true
+                active: "{{ is_state(config.entity, 'on') }}"
         sort:
           method: name
       - type: 'custom:auto-entities'
@@ -86,6 +116,12 @@ views:
             - domain: light
               group: group.basement_lights
               entity_id: "light.*_switch"
+              options:
+                type: custom:template-entity-row
+                name: >
+                  {{ config.entity | regex_replace(find='^light\.', replace='') | regex_replace(find='_switch$', replace='') | regex_replace(find='_', replace=' ') | title }}
+                toggle: true
+                active: "{{ is_state(config.entity, 'on') }}"
         sort:
           method: name
       - type: 'custom:auto-entities'
