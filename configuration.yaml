@@ -87,6 +87,8 @@ prometheus:
   filter:
     include_domains:
       - sensor
+      - light
+      - switch
 
 script: !include_dir_merge_named scripts/
 light: !include_dir_merge_list lights/
