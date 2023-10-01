@@ -82,6 +82,12 @@ logger:
 
 sun:
 
+prometheus:
+  namespace: hass
+  filter:
+    include_domains:
+      - sensor
+
 script: !include_dir_merge_named scripts/
 light: !include_dir_merge_list lights/
 sensor: !include_dir_merge_list sensors/
