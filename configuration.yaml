@@ -84,7 +84,6 @@ prometheus:
       - switch
 
 emulated_hue:
-  type: alexa
   host_ip: 192.168.12.35
   listen_port: 80
   expose_by_default: false
