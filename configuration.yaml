@@ -89,7 +89,20 @@ emulated_hue:
   expose_by_default: false
   exposed_domains:
     - light
+    - group
   entities:
+    light.basement_escalier_switch:
+      name: "escalier sous-sol"
+      hidden: false
+    light.bedroom_bathroom_dimmer:
+      name: "chambre douche"
+      hidden: false
+    light.bedroom_left_dimmer:
+      name: "chambre lampe"
+      hidden: false
+    light.blue_light_desk:
+      name: "blue lampe"
+      hidden: false
     light.entree_switch:
       name: "entree"
       hidden: false
@@ -101,6 +114,21 @@ emulated_hue:
       hidden: false
     light.poutre_dimmer:
       name: "poutre"
+      hidden: false
+    light.kitchen_switch:
+      name: "cuisine"
+      hidden: false
+    light.living_ball_switch:
+      name: "living ball"
+      hidden: false
+    light.piano_switch:
+      name: "piano"
+      hidden: false
+    light.table_dimmer:
+      name: "table"
+      hidden: false
+    light.terrace:
+      name: "terrasse"
       hidden: false
 
 script: !include_dir_merge_named scripts/
