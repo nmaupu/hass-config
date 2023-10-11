@@ -130,6 +130,12 @@ emulated_hue:
     light.terrace:
       name: "terrasse"
       hidden: false
+    group.hall_lights:
+      name: "hall"
+      hidden: false
+    group.blue_lights:
+      name: "blue"
+      hidden: false
 
 script: !include_dir_merge_named scripts/
 light: !include_dir_merge_list lights/
