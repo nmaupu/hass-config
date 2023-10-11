@@ -26,13 +26,6 @@ homeassistant:
 
 websocket_api:
 
-
-
-#http:
-#  server_port: 8123
-#  ssl_certificate: /home/homeassistant/certs/fullchain.pem
-#  ssl_key: /home/homeassistant/certs/privkey.pem
-#  base_url: !secret http_baseurl
 http:
   server_port: 8123
   ssl_certificate: /home/homeassistant/certs/fullchain.pem
@@ -89,6 +82,23 @@ prometheus:
       - sensor
       - light
       - switch
+
+emulated_hue:
+  type: alexa
+  host_ip: 192.168.12.35
+  listen_port: 80
+  expose_by_default: false
+  exposed_domains:
+    - light
+  entities:
+    light.entree_switch:
+      name: "entrée"
+    light.dressing_switch:
+      name: "dressing"
+    light.escalier_switch:
+      name: "escalier"
+    light.poutre_dimmer:
+      name: "poutre"
 
 script: !include_dir_merge_named scripts/
 light: !include_dir_merge_list lights/
