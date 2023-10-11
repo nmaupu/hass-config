@@ -91,13 +91,17 @@ emulated_hue:
     - light
   entities:
     light.entree_switch:
-      name: "entrée"
+      name: "entree"
+      hidden: false
     light.dressing_switch:
       name: "dressing"
+      hidden: false
     light.escalier_switch:
       name: "escalier"
+      hidden: false
     light.poutre_dimmer:
       name: "poutre"
+      hidden: false
 
 script: !include_dir_merge_named scripts/
 light: !include_dir_merge_list lights/
