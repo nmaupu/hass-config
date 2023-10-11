@@ -90,6 +90,7 @@ emulated_hue:
   exposed_domains:
     - light
     - group
+    - switch
   entities:
     light.basement_escalier_switch:
       name: "escalier sous-sol"
