@@ -133,7 +133,7 @@ views:
           include:
             - domain: light
               group: group.blue_lights
-              entity_id: "light.*_switch"
+              entity_id: "light.*"
         sort:
           method: name
       - type: 'custom:auto-entities'
