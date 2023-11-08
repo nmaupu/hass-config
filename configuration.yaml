@@ -140,6 +140,9 @@ emulated_hue:
     group.blue_lights:
       name: "blue"
       hidden: false
+    group.upstairs_lights:
+      name: "étage"
+      hidden: false
 
 script: !include_dir_merge_named scripts/
 light: !include_dir_merge_list lights/
