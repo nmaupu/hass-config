@@ -74,6 +74,18 @@ views:
         card:
           type: entities
           show_header_toggle: true
+          title: Bedroom
+        filter:
+          include:
+            - domain: light
+              group: group.bedroom_lights
+              entity_id: "light.*"
+        sort:
+          method: name
+      - type: 'custom:auto-entities'
+        card:
+          type: entities
+          show_header_toggle: true
           title: Hall
         filter:
           include:
