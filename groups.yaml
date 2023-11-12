@@ -26,7 +26,8 @@ basement_lights:
   - light.basement_escalier_switch
 
 bedroom_lights:
-  - light.bedroom_bedlight_left
+  - light.bedroom_left_dimmer
+  - light.bedroom_bathroom_dimmer
   - light.bedroom_switch
 
 blue_lights:
