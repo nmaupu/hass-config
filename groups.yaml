@@ -25,7 +25,7 @@ kitchen_lights:
 basement_lights:
   - light.basement_escalier_switch
 
-bedroom:
+bedroom_lights:
   - light.bedroom_bedlight_left
   - light.bedroom_switch
 
