@@ -83,7 +83,7 @@ views:
               options:
                 type: custom:template-entity-row
                 name: >
-                  {{ config.entity | regex_replace(find='^light\.', replace='') | regex_replace(find='_switch$', replace='') | regex_replace(find='_', replace=' ') | title }}
+                  {{ config.entity | regex_replace(find='^light\.', replace='') | regex_replace(find='_switch$', replace='') | regex_replace(find='_dimmer$', replace='') | regex_replace(find='_', replace=' ') | title }}
                 toggle: true
                 active: "{{ is_state(config.entity, 'on') }}"
         sort:
