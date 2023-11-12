@@ -27,6 +27,7 @@ basement_lights:
 
 bedroom:
   - light.bedroom_bedlight_left
+  - light.bedroom_switch
 
 blue_lights:
   - light.blue_desk_switch
