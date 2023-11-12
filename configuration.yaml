@@ -135,7 +135,7 @@ emulated_hue:
       name: "terrasse"
       hidden: false
     light.bedroom_switch:
-      name: "chambre"
+      name: "appliques de la chambre"
       hidden: false
     group.hall_lights:
       name: "hall"
