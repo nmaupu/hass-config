@@ -110,24 +110,6 @@ views:
         card:
           type: entities
           show_header_toggle: true
-          title: Dressing
-        filter:
-          include:
-            - domain: light
-              group: group.dressing_lights
-              entity_id: "light.*_switch"
-              options:
-                type: custom:template-entity-row
-                name: >
-                  {{ config.entity | regex_replace(find='^light\.', replace='') | regex_replace(find='_switch$', replace='') | regex_replace(find='_', replace=' ') | title }}
-                toggle: true
-                active: "{{ is_state(config.entity, 'on') }}"
-        sort:
-          method: name
-      - type: 'custom:auto-entities'
-        card:
-          type: entities
-          show_header_toggle: true
           title: Basement
         filter:
           include:
