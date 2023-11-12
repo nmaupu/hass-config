@@ -131,8 +131,11 @@ emulated_hue:
     light.wled_blue:
       name: "led blue"
       hidden: false
-    light.terrace:
+    light.terrace_switch:
       name: "terrasse"
+      hidden: false
+    light.bedroom_switch:
+      name: "chambre"
       hidden: false
     group.hall_lights:
       name: "hall"
@@ -142,6 +145,9 @@ emulated_hue:
       hidden: false
     group.upstairs_lights:
       name: "etage"
+      hidden: false
+    group.bedroom:
+      name: "chambre"
       hidden: false
 
 script: !include_dir_merge_named scripts/
