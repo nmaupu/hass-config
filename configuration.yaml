@@ -132,7 +132,7 @@ emulated_hue:
       name: "laideblou"
       hidden: false
     light.wled_poutre:
-      name: "laidepoutre"
+      name: "laide living"
       hidden: false
     light.terrace_switch:
       name: "terrasse"
