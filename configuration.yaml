@@ -129,22 +129,22 @@ emulated_hue:
       name: "table"
       hidden: false
     light.wled_blue:
-      name: "led blue"
+      name: "laideblou"
       hidden: false
     light.wled_poutre:
-      name: "led poutre"
+      name: "laidepoutre"
       hidden: false
     light.terrace_switch:
       name: "terrasse"
       hidden: false
     light.bedroom_switch:
-      name: "appliques de la chambre"
+      name: "appliques"
       hidden: false
     group.hall_lights:
       name: "hall"
       hidden: false
     group.blue_lights:
-      name: "blue"
+      name: "blou"
       hidden: false
     group.upstairs_lights:
       name: "etage"
