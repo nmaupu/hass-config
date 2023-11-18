@@ -19,6 +19,7 @@ upstairs_lights:
   - light.table_dimmer
   - light.living_ball_switch
   - light.kitchen_switch
+  - light.wled_poutre
 
 kitchen_lights:
   - light.kitchen_switch
