@@ -12,6 +12,7 @@ living_lights:
   - light.poutre_dimmer
   - light.table_dimmer
   - light.living_ball_switch
+  - light.wled_poutre
 
 upstairs_lights:
   - light.poutre_dimmer
