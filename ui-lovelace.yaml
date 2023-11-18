@@ -41,7 +41,7 @@ views:
                     active: "{{ is_state(config.entity, 'on') }}"
                 - domain: light
                   group: group.living_lights
-                  entity_id: "light.led_*"
+                  entity_id: "light.wled_*"
                   options:
                     type: custom:template-entity-row
                     name: >
