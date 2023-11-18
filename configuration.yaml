@@ -131,6 +131,9 @@ emulated_hue:
     light.wled_blue:
       name: "led blue"
       hidden: false
+    light.wled_poutre
+      name: "led poutre"
+      hidden: false
     light.terrace_switch:
       name: "terrasse"
       hidden: false
