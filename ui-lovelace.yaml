@@ -32,7 +32,16 @@ views:
               include:
                 - domain: light
                   group: group.living_lights
-                  entity_id: "light.*_switch|light.led_poutre"
+                  entity_id: "light.*_switch"
+                  options:
+                    type: custom:template-entity-row
+                    name: >
+                      {{ config.entity | regex_replace(find='^light\.', replace='') | regex_replace(find='_switch$', replace='') | regex_replace(find='_', replace=' ') | title }}
+                    toggle: true
+                    active: "{{ is_state(config.entity, 'on') }}"
+                - domain: light
+                  group: group.living_lights
+                  entity_id: "light.led_*"
                   options:
                     type: custom:template-entity-row
                     name: >
