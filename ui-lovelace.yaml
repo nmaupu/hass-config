@@ -32,7 +32,7 @@ views:
               include:
                 - domain: light
                   group: group.living_lights
-                  entity_id: "light.*_switch|light.wled_poutre"
+                  entity_id: "light.*"
                   options:
                     type: custom:template-entity-row
                     name: >
