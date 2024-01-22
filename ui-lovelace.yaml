@@ -175,41 +175,66 @@ views:
         alert_forecast: true
         forecast: true
   - title: Confort
+    type: custom:grid-layout
+    layout:
+      grid-template-columns: auto
+      grid-template-rows: auto
+      grid-template-areas: |
+        "one two three"
+        "four five six"
+        "footer footer footer"
+      mediaquery:
+        "(max-width: 600px)":
+          grid-template-columns: 50% 50%
+          grid-template-areas: |
+            "one two"
+            "three four"
+            "five six"
+            "footer footer"
     path: confort
     icon: 'mdi:radiator'
     badges: []
     cards:
-      - type: vertical-stack
-        cards:
-          - type: grid
-            columns: 3
-            cards:
-              - type: thermostat
-                entity: climate.bedroom
-                name: Bedroom
-              - type: thermostat
-                entity: climate.blue
-                name: Blue
-              - type: thermostat
-                entity: climate.pink
-                name: Pink
-              - type: thermostat
-                entity: climate.living
-                name: Living
-              - type: thermostat
-                entity: climate.kitchen
-                name: Kitchen
-              - type: thermostat
-                entity: climate.hall
-                name: Hall
-          - type: 'custom:auto-entities'
-            card:
-              type: entities
-              title: Overrides
-              show_header_toggle: false
-            filter:
-              include:
-                - entity_id: "input_boolean.override_heater_*"
+      - type: thermostat
+        entity: climate.bedroom
+        name: Bedroom
+        view_layout:
+          grid-area: one
+      - type: thermostat
+        entity: climate.blue
+        name: Blue
+        view_layout:
+          grid-area: two
+      - type: thermostat
+        entity: climate.pink
+        name: Pink
+        view_layout:
+          grid-area: three
+      - type: thermostat
+        entity: climate.living
+        name: Living
+        view_layout:
+          grid-area: four
+      - type: thermostat
+        entity: climate.kitchen
+        name: Kitchen
+        view_layout:
+          grid-area: five
+      - type: thermostat
+        entity: climate.hall
+        name: Hall
+        view_layout:
+          grid-area: six
+      - type: 'custom:auto-entities'
+        view_layout:
+          grid-area: footer
+        card:
+          type: entities
+          title: Overrides
+          show_header_toggle: false
+        filter:
+          include:
+            - entity_id: "input_boolean.override_heater_*"
   - title: Temperature
     path: temperature
     icon: 'mdi:thermometer'
