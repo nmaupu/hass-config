@@ -11,84 +11,105 @@ views:
       grid-template-columns: auto
       grid-template-rows: auto
       grid-template-areas: |
-        "one"
-        "footer"
+        "updim up up"
+        "bedroomdim bedroom bedroom"
+        "hall blue basement"
+        "footer footer footer"
+      mediaquery:
+        "(max-width: 600px)":
+          grid-template-columns: auto
+          grid-template-rows: auto
+          grid-template-areas: |
+            "updim"
+            "up"
+            "bedroomdim"
+            "bedroom"
+            "hall"
+            "blue"
+            "basement"
+            "footer"
     path: lights
     icon: 'mdi:lightbulb'
     badges: []
     cards:
-      - type: vertical-stack
+      - type: horizontal-stack
         view_layout:
-          grid-area: one
+          grid-area: updim
         cards:
-          - type: horizontal-stack
-            columns: 2
-            cards:
-              - type: light
-                entity: light.poutre_dimmer
-                name: Poutre
-                icon: 'mdi:lightbulb'
-              - type: light
-                entity: light.table_dimmer
-                name: Table
-                icon: 'mdi:lightbulb'
-          - type: 'custom:auto-entities'
-            card:
-              type: entities
-              show_header_toggle: true
-              title: Upstairs
-            filter:
-              include:
-                - domain: light
-                  group: group.living_lights
-                  entity_id: "light.*_switch"
-                  options:
-                    type: custom:template-entity-row
-                    name: >
-                      {{ config.entity | regex_replace(find='^light\.', replace='') | regex_replace(find='_switch$', replace='') | regex_replace(find='_', replace=' ') | title }}
-                    toggle: true
-                    active: "{{ is_state(config.entity, 'on') }}"
-                - domain: light
-                  group: group.living_lights
-                  entity_id: "light.wled_*"
-                  options:
-                    type: custom:template-entity-row
-                    name: >
-                      {{ config.entity | regex_replace(find='^light\.', replace='') | regex_replace(find='_switch$', replace='') | regex_replace(find='_', replace=' ') | title }}
-                    toggle: true
-                    active: "{{ is_state(config.entity, 'on') }}"
-                - domain: light
-                  group: group.kitchen_lights
-                  entity_id: "light.*_switch"
-                  options:
-                    type: custom:template-entity-row
-                    name: >
-                      {{ config.entity | regex_replace(find='^light\.', replace='') | regex_replace(find='_switch$', replace='') | regex_replace(find='_', replace=' ') | title }}
-                    toggle: true
-                    active: "{{ is_state(config.entity, 'on') }}"
-                - domain: light
-                  group: group.terrace_lights
-                  entity_id: "light.*_switch"
-                  options:
-                    type: custom:template-entity-row
-                    name: >
-                      {{ config.entity | regex_replace(find='^light\.', replace='') | regex_replace(find='_switch$', replace='') | regex_replace(find='_', replace=' ') | title }}
-                    toggle: true
-                    active: "{{ is_state(config.entity, 'on') }}"
-            sort:
-              method: name
-          - type: horizontal-stack
-            column: 2
-            cards:
-              - type: light
-                entity: light.bedroom_left_dimmer
-                name: Bed left
-                icon: 'mdi:lightbulb'
-              - type: light
-                entity: light.bedroom_bathroom_dimmer
-                name: Shower room
-                icon: 'mdi:lightbulb'
+          - type: light
+            entity: light.poutre_dimmer
+            name: Poutre
+            icon: 'mdi:lightbulb'
+          - type: light
+            entity: light.table_dimmer
+            name: Table
+            icon: 'mdi:lightbulb'
+
       - type: 'custom:auto-entities'
+        view_layout:
+          grid-area: up
+        card:
+          type: entities
+          show_header_toggle: true
+          title: Upstairs
+        filter:
+          include:
+            - domain: light
+              group: group.living_lights
+              entity_id: "light.*_switch"
+              options:
+                type: custom:template-entity-row
+                name: >
+                  {{ config.entity | regex_replace(find='^light\.', replace='') | regex_replace(find='_switch$', replace='') | regex_replace(find='_', replace=' ') | title }}
+                toggle: true
+                active: "{{ is_state(config.entity, 'on') }}"
+            - domain: light
+              group: group.living_lights
+              entity_id: "light.wled_*"
+              options:
+                type: custom:template-entity-row
+                name: >
+                  {{ config.entity | regex_replace(find='^light\.', replace='') | regex_replace(find='_switch$', replace='') | regex_replace(find='_', replace=' ') | title }}
+                toggle: true
+                active: "{{ is_state(config.entity, 'on') }}"
+            - domain: light
+              group: group.kitchen_lights
+              entity_id: "light.*_switch"
+              options:
+                type: custom:template-entity-row
+                name: >
+                  {{ config.entity | regex_replace(find='^light\.', replace='') | regex_replace(find='_switch$', replace='') | regex_replace(find='_', replace=' ') | title }}
+                toggle: true
+                active: "{{ is_state(config.entity, 'on') }}"
+            - domain: light
+              group: group.terrace_lights
+              entity_id: "light.*_switch"
+              options:
+                type: custom:template-entity-row
+                name: >
+                  {{ config.entity | regex_replace(find='^light\.', replace='') | regex_replace(find='_switch$', replace='') | regex_replace(find='_', replace=' ') | title }}
+                toggle: true
+                active: "{{ is_state(config.entity, 'on') }}"
+        sort:
+          method: name
+
+      - type: horizontal-stack
+        view_layout:
+          grid-area: bedroomdim
+        column: 2
+        cards:
+          - type: light
+            entity: light.bedroom_left_dimmer
+            name: Bed left
+            icon: 'mdi:lightbulb'
+          - type: light
+            entity: light.bedroom_bathroom_dimmer
+            name: Shower room
+            icon: 'mdi:lightbulb'
+
+      - type: 'custom:auto-entities'
+        view_layout:
+          grid-area: bedroom
         card:
           type: entities
           show_header_toggle: true
@@ -106,7 +127,10 @@ views:
                 active: "{{ is_state(config.entity, 'on') }}"
         sort:
           method: name
+
       - type: 'custom:auto-entities'
+        view_layout:
+          grid-area: hall
         card:
           type: entities
           show_header_toggle: true
@@ -124,7 +148,10 @@ views:
                 active: "{{ is_state(config.entity, 'on') }}"
         sort:
           method: name
+
       - type: 'custom:auto-entities'
+        view_layout:
+          grid-area: basement
         card:
           type: entities
           show_header_toggle: true
@@ -142,7 +169,10 @@ views:
                 active: "{{ is_state(config.entity, 'on') }}"
         sort:
           method: name
+
       - type: 'custom:auto-entities'
+        view_layout:
+          grid-area: blue
         card:
           type: entities
           show_header_toggle: true
@@ -154,6 +184,7 @@ views:
               entity_id: "light.*"
         sort:
           method: name
+
       - type: 'custom:auto-entities'
         view_layout:
           grid-area: footer
