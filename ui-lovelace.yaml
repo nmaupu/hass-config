@@ -179,32 +179,37 @@ views:
     icon: 'mdi:radiator'
     badges: []
     cards:
-      - type: thermostat
-        entity: climate.bedroom
-        name: Bedroom
-      - type: thermostat
-        entity: climate.blue
-        name: Blue
-      - type: thermostat
-        entity: climate.pink
-        name: Pink
-      - type: thermostat
-        entity: climate.living
-        name: Living
-      - type: thermostat
-        entity: climate.kitchen
-        name: Kitchen
-      - type: thermostat
-        entity: climate.hall
-        name: Hall
-      - type: 'custom:auto-entities'
-        card:
-          type: entities
-          title: Overrides
-          show_header_toggle: false
-        filter:
-          include:
-            - entity_id: "input_boolean.override_heater_*"
+      - type: vertical-stack
+        cards:
+          - type: grid
+            columns: 3
+            cards:
+              - type: thermostat
+                entity: climate.bedroom
+                name: Bedroom
+              - type: thermostat
+                entity: climate.blue
+                name: Blue
+              - type: thermostat
+                entity: climate.pink
+                name: Pink
+              - type: thermostat
+                entity: climate.living
+                name: Living
+              - type: thermostat
+                entity: climate.kitchen
+                name: Kitchen
+              - type: thermostat
+                entity: climate.hall
+                name: Hall
+          - type: 'custom:auto-entities'
+            card:
+              type: entities
+              title: Overrides
+              show_header_toggle: false
+            filter:
+              include:
+                - entity_id: "input_boolean.override_heater_*"
   - title: Temperature
     path: temperature
     icon: 'mdi:thermometer'
