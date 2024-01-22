@@ -6,11 +6,20 @@ custom_header:
   hide_help: false
 views:
   - title: Lights
+    type: custom:grid-layout
+    layout:
+      grid-template-columns: auto
+      grid-template-rows: auto
+      grid-template-areas: |
+        "one"
+        "footer"
     path: lights
     icon: 'mdi:lightbulb'
     badges: []
     cards:
       - type: vertical-stack
+        view_layout:
+          grid-area: one
         cards:
           - type: horizontal-stack
             columns: 2
@@ -146,6 +155,8 @@ views:
         sort:
           method: name
       - type: 'custom:auto-entities'
+        view_layout:
+          grid-area: footer
         card:
           type: entities
           title: Random
