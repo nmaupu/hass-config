@@ -60,6 +60,8 @@ lovelace:
       type: module
     - url: /local/community/lovelace-meteofrance-weather-card/meteofrance-weather-card.js
       type: module
+    - url: /local/lovelace-layout-cards/layout-card.js
+      type: module
 
 default_config:
 
