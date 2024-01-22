@@ -244,11 +244,27 @@ views:
           include:
             - entity_id: "input_boolean.override_heater_*"
   - title: Temperature
+    type: custom:grid-layout
+    layout:
+      grid-template-columns: auto
+      grid-template-rows: auto
+      grid-template-areas: |
+        "one two"
+        "footer footer"
+      mediaquery:
+        "(max-width: 600px)":
+          grid-template-columns: 100%
+          grid-template-areas: |
+            "one"
+            "two"
+            "footer"
     path: temperature
     icon: 'mdi:thermometer'
     badges: []
     cards:
       - type: 'custom:auto-entities'
+        view_layout:
+          grid-area: one
         card:
           type: entities
           title: Temperature
@@ -259,6 +275,8 @@ views:
         sort:
           method: name
       - type: 'custom:auto-entities'
+        view_layout:
+          grid-area: two
         card:
           type: entities
           title: Humidity
@@ -269,6 +287,8 @@ views:
         sort:
           method: name
       - type: 'custom:auto-entities'
+        view_layout:
+          grid-area: footer
         card:
           type: entities
           title: Estrade dehumidifier
