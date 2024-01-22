@@ -154,11 +154,19 @@ views:
           include:
             - entity_id: "input_boolean.random_lights"
   - title: Weather
+    type: custom:grid-layout
+    layout:
+      grid-template-columns: auto
+      grid-template-rows: auto
+      grid-template-areas: |
+        "main"
     path: weather
     icon: 'mdi:weather-partly-cloudy'
     badges: []
     cards:
       - type: "custom:meteofrance-weather-card"
+        view_layout:
+          grid-area: main
         name: Saint-Ouen
         entity: weather.saint_ouen
         cloudCoverEntity: sensor.saint_ouen_cloud_cover
