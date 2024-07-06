@@ -28,8 +28,8 @@ websocket_api:
 
 http:
   server_port: 8123
-  ssl_certificate: /home/homeassistant/certs/fullchain.pem
-  ssl_key: /home/homeassistant/certs/privkey.pem
+  ssl_certificate: /home/homeassistant/certs/homeassistant-cert.crt
+  ssl_key: /home/homeassistant/certs/homeassistant-cert.key
   cors_allowed_origins:
     - https://hass.home.fossar.net:8213
     - https://hass.home.fossar.net
