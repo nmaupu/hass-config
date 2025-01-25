@@ -41,10 +41,6 @@ emulated_roku:
     - name: Home Assistant
       listen_port: 8060
 
-# Database configuration
-recorder:
-  commit_interval: 30
-
 lovelace:
   mode: yaml
   resources:
@@ -165,3 +161,4 @@ group: !include groups.yaml
 switch: !include_dir_merge_list switches/
 climate: !include_dir_merge_list climates/
 input_boolean: !include_dir_merge_named input_booleans/
+recorder: !include recorder.yaml
