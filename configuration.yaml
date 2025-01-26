@@ -42,6 +42,7 @@ http:
 emulated_roku:
   servers:
     - name: Home Assistant
+      host_ip: 0.0.0.0
       listen_port: 8060
 
 lovelace:
