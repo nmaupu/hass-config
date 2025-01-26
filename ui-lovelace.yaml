@@ -234,7 +234,7 @@ views:
         "four five six"
         "footer footer footer"
       mediaquery:
-        "(max-width: 600px)":
+        "(max-width: 1055px)":
           grid-template-columns: 50% 50%
           grid-template-areas: |
             "one two"
@@ -246,8 +246,8 @@ views:
     badges: []
     cards:
       - type: thermostat
-        entity: climate.bedroom
-        name: Bedroom
+        entity: climate.living
+        name: Living
         view_layout:
           grid-area: one
       - type: thermostat
@@ -261,13 +261,13 @@ views:
         view_layout:
           grid-area: three
       - type: thermostat
-        entity: climate.living
-        name: Living
+        entity: climate.kitchen
+        name: Kitchen
         view_layout:
           grid-area: four
       - type: thermostat
-        entity: climate.kitchen
-        name: Kitchen
+        entity: climate.bedroom
+        name: Bedroom
         view_layout:
           grid-area: five
       - type: thermostat
