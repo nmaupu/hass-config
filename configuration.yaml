@@ -28,8 +28,11 @@ websocket_api:
 
 http:
   server_port: 8123
-  ssl_certificate: /home/homeassistant/certs/homeassistant-cert.crt
-  ssl_key: /home/homeassistant/certs/homeassistant-cert.key
+  trusted_proxies:
+    - 10.0.0.0/8
+    - 192.168.12.0/24
+    - 192.168.100.0/24
+  use_x_forwarded_for: true
   cors_allowed_origins:
     - https://hass.home.fossar.net:8213
     - https://hass.home.fossar.net
@@ -82,7 +85,7 @@ prometheus:
       - switch
 
 emulated_hue:
-  host_ip: 192.168.12.35
+  host_ip: 0.0.0.0
   listen_port: 80
   expose_by_default: false
   exposed_domains:
