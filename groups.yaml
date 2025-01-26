@@ -33,7 +33,6 @@ bedroom_lights:
   - light.bedroom_switch
 
 blue_lights:
-  - light.blue_desk_switch
   - light.wled_blue
 
 terrace_lights:
