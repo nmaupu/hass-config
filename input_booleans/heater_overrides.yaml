@@ -1,34 +1,27 @@
 override_heater_living:
   name: Manual override living's heaters
-  initial: off
   icon: mdi:hand
 
 override_heater_bedroom:
   name: Manual override bedroom heater
-  initial: off
   icon: mdi:hand
 
 override_heater_blue:
   name: Manual override blue room heater
-  initial: off
   icon: mdi:hand
 
 override_heater_pink:
   name: Manual override pink room heater
-  initial: off
   icon: mdi:hand
 
 override_heater_kitchen:
   name: Manual override kitchen heater
-  initial: off
   icon: mdi:hand
 
 override_heater_hall:
   name: Manual override hall heater
-  initial: off
   icon: mdi:hand
 
 override_heater_prog:
   name: Manually deactivate progr.
-  initial: off
   icon: mdi:hand

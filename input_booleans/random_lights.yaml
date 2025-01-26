@@ -1,4 +1,3 @@
 random_lights:
   name: Random lights on/off
-  initial: off
   icon: mdi:hand

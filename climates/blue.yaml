@@ -7,7 +7,6 @@
   max_temp: 23
   precision: 0.1
   ac_mode: false
-  target_temp: 18
   away_temp: 16
   min_cycle_duration:
     seconds: 10
