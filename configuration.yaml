@@ -44,6 +44,7 @@ emulated_roku:
     - name: Home Assistant
       host_ip: 0.0.0.0
       listen_port: 8060
+      advertise_ip: 192.168.100.20
 
 lovelace:
   mode: yaml
@@ -87,6 +88,7 @@ prometheus:
 
 emulated_hue:
   host_ip: 0.0.0.0
+  advertise_ip: 192.168.100.20
   listen_port: 80
   expose_by_default: false
   exposed_domains:
