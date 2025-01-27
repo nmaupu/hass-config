@@ -73,7 +73,7 @@ tts:
   - platform: google_translate
 
 logger:
-  default: debug
+  default: info
 
 sun:
 
