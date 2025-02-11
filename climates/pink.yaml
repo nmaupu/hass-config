@@ -2,7 +2,7 @@
 - platform: generic_thermostat
   name: pink
   heater: switch.pink_heater
-  target_sensor: sensor.pink_hum_temp_temperature
+  target_sensor: sensor.z03mmc_pink_hum_temp_temperature
   min_temp: 15
   max_temp: 23
   precision: 0.1
@@ -10,6 +10,6 @@
   away_temp: 16
   min_cycle_duration:
     seconds: 10
-  initial_hvac_mode: "heat"
-  cold_tolerance: 0.1
+  initial_hvac_mode: "off"
+  cold_tolerance: 0.5
   hot_tolerance: 0.1

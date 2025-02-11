@@ -2,7 +2,7 @@
 - platform: generic_thermostat
   name: hall
   heater: switch.hall_heater
-  target_sensor: sensor.hall_hum_temp_temperature
+  target_sensor: sensor.z03mmc_hall_hum_temp_temperature
   min_temp: 15
   max_temp: 23
   precision: 0.1
@@ -10,6 +10,6 @@
   away_temp: 16
   min_cycle_duration:
     seconds: 10
-  initial_hvac_mode: "heat"
+  initial_hvac_mode: "off"
   cold_tolerance: 0.1
   hot_tolerance: 0.1
