@@ -224,7 +224,7 @@ views:
         one_hour_forecast: true
         alert_forecast: true
         forecast: true
-  - title: Confort
+  - title: Comfort
     type: custom:grid-layout
     layout:
       grid-template-columns: auto
@@ -241,7 +241,7 @@ views:
             "three four"
             "five six"
             "footer footer"
-    path: confort
+    path: comfort
     icon: 'mdi:radiator'
     badges: []
     cards:
@@ -314,6 +314,7 @@ views:
         filter:
           include:
             - entity_id: "sensor.*_temperature"
+            - entity_id: "sensor.*_tempc"
         sort:
           method: name
       - type: 'custom:auto-entities'
@@ -326,6 +327,7 @@ views:
         filter:
           include:
             - entity_id: "sensor.*_humidity"
+            - entity_id: "sensor.*_hum"
         sort:
           method: name
       - type: 'custom:auto-entities'
@@ -351,9 +353,9 @@ views:
         filter:
           include:
             - entity_id: "sensor.*_battery"
+            - entity_id: "sensor.*_batt"
           attributes:
             manufacturer: "Xiaomi"
-            model: "Aqara*"
         sort:
           method: state
           reverse: false
