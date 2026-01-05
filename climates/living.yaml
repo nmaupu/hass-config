@@ -12,4 +12,4 @@
     seconds: 10
   initial_hvac_mode: "off"
   cold_tolerance: 0.1
-  hot_tolerance: 0.2
+  hot_tolerance: 0.1
