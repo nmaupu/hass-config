@@ -52,7 +52,7 @@ emulated_roku:
       # - If pod IP is routable: use the pod's IP address
       # - If using NodePort: use the node's IP address
       # advertise_ip: 192.168.x.x  # TODO: Replace with your actual routable IP
-      advertise_ip: 192.168.12.40
+      advertise_ip: 192.168.100.1
       advertise_port: 8060
 
 lovelace:
