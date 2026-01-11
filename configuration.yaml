@@ -37,23 +37,6 @@ http:
     - https://hass.home.fossar.net:8123
     - https://hass.home.fossar.net
 
-# See https://www.home-assistant.io/integrations/emulated_roku/
-# Used to control hass from Logitech Harmony remote
-emulated_roku:
-  servers:
-    - name: Home Assistant
-      host_ip: 0.0.0.0
-      listen_port: 8060
-      # advertise_ip: Set this to the IP address that your Harmony Hub can reach
-      # This should be the routable IP (LoadBalancer IP, node IP, or pod IP if on same network)
-      # NOT the ClusterIP (10.106.99.31) which is only reachable within the cluster
-      # Examples:
-      # - If using LoadBalancer service: use the external IP assigned by MetalLB
-      # - If pod IP is routable: use the pod's IP address
-      # - If using NodePort: use the node's IP address
-      # advertise_ip: 192.168.x.x  # TODO: Replace with your actual routable IP
-      advertise_ip: 192.168.100.1
-      advertise_port: 8060
 
 lovelace:
   mode: yaml
@@ -84,8 +67,8 @@ tts:
 
 logger:
   default: info
-  logs:
-    homeassistant.components.emulated_roku: debug
+  # logs:
+  #   homeassistant.components.emulated_roku: debug
 
 sun:
 
@@ -97,9 +80,27 @@ prometheus:
       - light
       - switch
 
+# See https://www.home-assistant.io/integrations/emulated_roku/
+# Used to control hass from Logitech Harmony remote
+emulated_roku:
+  servers:
+    - name: Home Assistant
+      host_ip: 0.0.0.0
+      listen_port: 30060
+      # advertise_ip: Set this to the IP address that your Harmony Hub can reach
+      # This should be the routable IP (LoadBalancer IP, node IP, or pod IP if on same network)
+      # NOT the ClusterIP (10.106.99.31) which is only reachable within the cluster
+      # Examples:
+      # - If using LoadBalancer service: use the external IP assigned by MetalLB
+      # - If using NodePort: use the node's IP address
+      advertise_ip: 192.168.12.40 # underlying k8s node ip
+      advertise_port: 30060
+
 emulated_hue:
   host_ip: 0.0.0.0
-  listen_port: 80
+  listen_port: 30070
+  advertise_ip: 192.168.12.40 # underlying k8s node ip
+  advertise_port: 30070
   expose_by_default: false
   exposed_domains:
     - light
