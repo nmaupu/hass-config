@@ -97,9 +97,9 @@ emulated_roku:
       advertise_port: 8060
 
 emulated_hue:
-  host_ip: 0.0.0.0
-  listen_port: 80
+  host_ip: 192.168.12.40 # It's using hostNetwork: true
   advertise_ip: 192.168.12.40 # underlying k8s node ip
+  listen_port: 80
   advertise_port: 80
   expose_by_default: false
   exposed_domains:
