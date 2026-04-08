@@ -96,77 +96,8 @@ emulated_roku:
       advertise_ip: 192.168.12.40 # underlying k8s node ip
       advertise_port: 8060
 
-emulated_hue:
-  host_ip: 192.168.12.40 # It's using hostNetwork: true
-  advertise_ip: 192.168.12.40 # underlying k8s node ip
-  listen_port: 80
-  advertise_port: 80
-  expose_by_default: false
-  exposed_domains:
-    - light
-    - group
-    - switch
-  entities:
-    light.basement_escalier_switch:
-      name: "escalier sous-sol"
-      hidden: false
-    light.bedroom_bathroom_dimmer:
-      name: "chambre douche"
-      hidden: false
-    light.bedroom_left_dimmer:
-      name: "chambre lampe"
-      hidden: false
-    light.blue_light_desk:
-      name: "blue lampe"
-      hidden: false
-    light.entree_switch:
-      name: "entree"
-      hidden: false
-    light.dressing_switch:
-      name: "dressing"
-      hidden: false
-    light.escalier_switch:
-      name: "escalier"
-      hidden: false
-    light.poutre_dimmer:
-      name: "poutre"
-      hidden: false
-    light.kitchen_switch:
-      name: "cuisine"
-      hidden: false
-    light.living_ball_switch:
-      name: "living ball"
-      hidden: false
-    light.piano_switch:
-      name: "piano"
-      hidden: false
-    light.table_dimmer:
-      name: "table"
-      hidden: false
-    light.wled_blue:
-      name: "laideblou"
-      hidden: false
-    light.wled_poutre:
-      name: "laide living"
-      hidden: false
-    light.terrace_switch:
-      name: "terrasse"
-      hidden: false
-    light.bedroom_switch:
-      name: "appliques"
-      hidden: false
-    group.hall_lights:
-      name: "hall"
-      hidden: false
-    group.blue_lights:
-      name: "blou"
-      hidden: false
-    group.upstairs_lights:
-      name: "etage"
-      hidden: false
-    group.bedroom:
-      name: "chambre"
-      hidden: false
+# For Alexa discovery, we are now using matterbridge (https://github.com/Luligu/matterbridge)
+# on a standalone instance.
 
 script: !include_dir_merge_named scripts/
 light: !include_dir_merge_list lights/
