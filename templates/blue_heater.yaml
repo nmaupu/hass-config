@@ -1,0 +1,31 @@
+# To be able to put the heater in frost protection mode
+# after a power outage (when module goes back online),
+# Relay1 has been inverted and Tasmota PowerOnState option has been set to 0
+# R1    R2   Mode
+# ON    OFF  Confort / heater ON (no signal)
+# OFF   OFF  Frost Protection (negative alternance)
+# ON    ON   STOP (positive alternance)
+# OFF   ON   ECO (normal sin)
+- switch:
+  - name: Blue room heater
+    state: "{{ is_state('switch.heater_blue_1', 'on') and is_state('switch.heater_blue_2', 'off') }}"
+    icon: >
+      {% if is_state('switch.heater_blue_1', 'on') and is_state('switch.heater_blue_2', 'off') %}
+        mdi:radiator
+      {% else %}
+        mdi:radiator-off
+      {% endif %}
+    turn_on:
+      - action: script.turn_on
+        target:
+          entity_id: script.heater_pilot_wire_confort
+        data:
+          variables:
+            switch_prefix: "heater_blue"
+    turn_off:
+      - action: script.turn_on
+        target:
+          entity_id: script.heater_pilot_wire_frostprotection
+        data:
+          variables:
+            switch_prefix: "heater_blue"

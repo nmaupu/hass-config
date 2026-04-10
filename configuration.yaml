@@ -99,6 +99,7 @@ emulated_roku:
 # For Alexa discovery, we are now using matterbridge (https://github.com/Luligu/matterbridge)
 # on a standalone instance.
 
+template: !include_dir_merge_list templates/
 script: !include_dir_merge_named scripts/
 light: !include_dir_merge_list lights/
 sensor: !include_dir_merge_list sensors/
