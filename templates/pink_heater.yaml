@@ -7,7 +7,7 @@
 # ON    ON   STOP (positive alternance)
 # OFF   ON   ECO (normal sin)
 - switch:
-  - name: Pink room heater
+  - name: Pink heater
     state: "{{ is_state('switch.heater_pink_1', 'on') and is_state('switch.heater_pink_2', 'off') }}"
     icon: >
       {% if is_state('switch.heater_pink_1', 'on') and is_state('switch.heater_pink_2', 'off') %}
