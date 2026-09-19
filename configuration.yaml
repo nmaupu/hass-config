@@ -82,18 +82,23 @@ prometheus:
 
 # See https://www.home-assistant.io/integrations/emulated_roku/
 # Used to control hass from Logitech Harmony remote
+#
+# GOTCHA: this YAML is only imported into a config entry the FIRST time a server
+# name is seen. Afterwards HASS runs from .storage/core.config_entries and
+# ignores any change below. To apply a change: Settings > Devices & services >
+# Emulated Roku > delete the entry, then restart HASS so it is re-imported.
 emulated_roku:
   servers:
     - name: Home Assistant
       host_ip: 0.0.0.0
       listen_port: 8060
-      # advertise_ip: Set this to the IP address that your Harmony Hub can reach
-      # This should be the routable IP (LoadBalancer IP, node IP, or pod IP if on same network)
-      # NOT the ClusterIP (10.106.99.31) which is only reachable within the cluster
-      # Examples:
-      # - If using LoadBalancer service: use the external IP assigned by MetalLB
-      # - If using NodePort: use the node's IP address
-      advertise_ip: 192.168.12.40 # underlying k8s node ip
+      # advertise_ip is only pasted into the SSDP LOCATION header (and the
+      # allowed Host list); it does not need to be an IP the pod owns, just one
+      # the Harmony Hub can reach. We use the MetalLB LoadBalancer IP of the
+      # home-assistant-emulated-roku service (k8s/argocd/home/iot/home-assistant
+      # in auto-home) so the pod can move between nodes without the Hub noticing.
+      # SSDP itself works because the pod runs with hostNetwork: true.
+      advertise_ip: 192.168.100.36
       advertise_port: 8060
 
 # For Alexa discovery, we are now using matterbridge (https://github.com/Luligu/matterbridge)
