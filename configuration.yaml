@@ -69,6 +69,7 @@ logger:
   default: info
   logs:
     homeassistant.components.emulated_roku: debug
+    emulated_roku: debug # the library itself: SSDP requests/replies, NOTIFY
 
 sun:
 
@@ -83,6 +84,15 @@ prometheus:
 # See https://www.home-assistant.io/integrations/emulated_roku/
 # Used to control hass from Logitech Harmony remote
 #
+# Home Assistant runs with hostNetwork: true in k8s so SSDP multicast works.
+# Do NOT set host_ip / advertise_ip here: when absent, HASS computes host_ip at
+# every startup from the default route (= the LAN IP of the node the pod is
+# currently on) and the library advertises/allows that same IP. The Harmony Hub
+# ignores the SSDP LOCATION header and connects to the IP the SSDP reply came
+# from, so the advertised IP MUST be the node IP anyway. When the pod moves to
+# another node the Hub gets a connection failure, re-discovers via SSDP and
+# follows the new node IP by itself (verified with tcpdump, 2026-09-19).
+#
 # GOTCHA: this YAML is only imported into a config entry the FIRST time a server
 # name is seen. Afterwards HASS runs from .storage/core.config_entries and
 # ignores any change below. To apply a change: Settings > Devices & services >
@@ -90,16 +100,7 @@ prometheus:
 emulated_roku:
   servers:
     - name: Home Assistant
-      host_ip: 0.0.0.0
       listen_port: 8060
-      # advertise_ip is only pasted into the SSDP LOCATION header (and the
-      # allowed Host list); it does not need to be an IP the pod owns, just one
-      # the Harmony Hub can reach. We use the MetalLB LoadBalancer IP of the
-      # home-assistant-emulated-roku service (k8s/argocd/home/iot/home-assistant
-      # in auto-home) so the pod can move between nodes without the Hub noticing.
-      # SSDP itself works because the pod runs with hostNetwork: true.
-      advertise_ip: 192.168.100.36
-      advertise_port: 8060
 
 # For Alexa discovery, we are now using matterbridge (https://github.com/Luligu/matterbridge)
 # on a standalone instance.
