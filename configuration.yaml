@@ -9,8 +9,7 @@ homeassistant:
   elevation: !secret elevation
   # metric for Metric, imperial for Imperial
   unit_system: metric
-  # Pick your time zone from:
-  # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: Europe/Paris
   # Customization file
   customize: !include customize.yaml
@@ -27,17 +26,20 @@ homeassistant:
 
 websocket_api:
 
-# HTTP settings are managed under Settings > System > Network after migration.
+http:
+  server_port: 8123
+  trusted_proxies:
+    - 10.0.0.0/8
+    - 192.168.12.0/24
+    - 192.168.100.0/24
+  use_x_forwarded_for: true
+  cors_allowed_origins:
+    - https://hass.home.fossar.net:8123
+    - https://hass.home.fossar.net
+
 
 lovelace:
-  resource_mode: yaml
-  dashboards:
-    lovelace:
-      mode: yaml
-      filename: ui-lovelace.yaml
-      title: Overview
-      icon: mdi:view-dashboard
-      show_in_sidebar: true
+  mode: yaml
   resources:
     - url: /local/template-entity-row/template-entity-row.js
       type: module
@@ -49,8 +51,7 @@ lovelace:
       type: js
     - url: /local/mini-graph-card-bundle.js
       type: module
-    - url: "/local/community/lovelace-meteofrance-weather-card/\
-        meteofrance-weather-card.js"
+    - url: /local/community/lovelace-meteofrance-weather-card/meteofrance-weather-card.js
       type: module
     - url: /local/lovelace-layout-cards/layout-card.js
       type: module
@@ -101,11 +102,12 @@ emulated_roku:
     - name: Home Assistant
       listen_port: 8060
 
-# For Alexa discovery, we use matterbridge on a standalone instance:
-# https://github.com/Luligu/matterbridge
+# For Alexa discovery, we are now using matterbridge (https://github.com/Luligu/matterbridge)
+# on a standalone instance.
 
 template: !include_dir_merge_list templates/
 script: !include_dir_merge_named scripts/
+light: !include_dir_merge_list lights/
 sensor: !include_dir_merge_list sensors/
 automation: !include automations.yaml
 automation mine: !include_dir_merge_list automations/
